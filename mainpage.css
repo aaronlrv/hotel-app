@@ -1,5 +1,35 @@
+body{
+    background: url("pexels-pixabay-261101.jpg") no-repeat center / cover;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 #menu-bar {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        padding-right: 50px;
+        padding-left: 50px;
+        height: 115px;
+
+}
+
+#menu-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px;
+
+}
+
+#logo-menubar{
+    display: flex;
+    align-content: start;
+}
+
+.logo{
+    height:100px;
+    width: auto;
 }
