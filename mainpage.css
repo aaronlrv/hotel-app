@@ -83,20 +83,18 @@ body{
     color: white;
 }
 
-button {
+.btn-29 {
     font-size: 16px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     margin: 10px;
+    width:150px;
     border-radius: 5px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-  }
-
-.btn-29 {
-    background-color: #e74c3c;
+    background-color: #C4A29E;
     color: white;
   }
   .btn-29:hover {
