@@ -1,9 +1,14 @@
 body{
     background: url("bg\ 2.jpg") no-repeat center / cover;
-    overflow: hidden;
-    min-width: 100vw;
-    min-height: 100vh;
     margin: 0px;
+    overflow: hidden;
+}    
+
+#wrapper-div{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #menu-bar {
@@ -13,8 +18,9 @@ body{
         padding-right: 50px;
         padding-left: 50px;
         height: 115px;
-        background-color: rgba(254, 255, 249);
+        background-color: #fefff9;
         box-shadow: 10px 5px 5px rgb(75, 71, 71,);
+        grid-row: 1;
 }
 
 #menu-options{
@@ -46,5 +52,19 @@ body{
 #main-page{
     width: 100%;
     height: 100%;
-    opacity: 15%;
+    grid-row: 2;
+    height: 100%;
+}
+
+#hero-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+}
+
+.hero-text{
+    font-family: "Salsa", cursive;
+    font-size: 100px;
+    color: white;
 }
