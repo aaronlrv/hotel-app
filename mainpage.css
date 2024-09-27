@@ -25,8 +25,6 @@ body{
         padding-right: 50px;
         padding-left: 50px;
         height: 115px;
-        background-color: #fefff9;
-        box-shadow: 10px 5px 5px rgb(75, 71, 71,);
         grid-row: 1;
 }
 
@@ -48,12 +46,14 @@ body{
 .logo{
     height:100px;
     width: auto;
+    padding-top: 10px;
 }
 
 #menu-text {
     font-family: "Open Sans", sans-serif;
     font-weight: lighter;
-    font-size: 17px;
+    font-size: 20px;
+    color: white;
 }
 
 #main-page{
@@ -72,10 +72,37 @@ body{
 }
 
 .hero-text{
-    font-family: "Salsa", cursive;
+    font-family: "Playfair Display", serif;
     font-size: 100px;
     color: white;
     margin: 0;
-
-
 }
+
+.sub-text{
+    font-family: "Playfair Display", serif;
+    color: white;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+.btn-29 {
+    background-color: #e74c3c;
+    color: white;
+  }
+  .btn-29:hover {
+    animation: explosion 0.5s forwards;
+  }
+  @keyframes explosion {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+  }
