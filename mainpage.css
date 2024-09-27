@@ -36,3 +36,10 @@ body{
     height:100px;
     width: auto;
 }
+
+#menu-text {
+
+    font-family: "Open Sans", sans-serif;
+    font-weight: lighter;
+    font-size: 17px;
+}
