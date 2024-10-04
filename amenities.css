@@ -52,7 +52,8 @@ a {
 }
 
 #second-window {
-  height: 300vh;
+  height: 100vh;
+  background-color: #f5f4e6;
 }
 
 .title-text {
@@ -70,4 +71,11 @@ a {
   font-size: 50px;
   margin: 0;
   padding-left: 73px;
+}
+
+.amenities-heading {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
 }
