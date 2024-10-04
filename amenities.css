@@ -52,7 +52,7 @@ a {
 }
 
 #second-window {
-  height: 100vh;
+  height: 80vh;
   background-color: #f5f4e6;
 }
 
@@ -78,4 +78,19 @@ a {
   height: 200px;
   justify-content: center;
   align-items: center;
+}
+
+#swimming-pool {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
+.swim {
+  height: 400px;
+  width: 300;
+}
+
+.swimming-text-div {
+  width: 600px;
 }
