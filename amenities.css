@@ -54,3 +54,20 @@ a {
 #second-window {
   height: 300vh;
 }
+
+.title-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 80px;
+  margin: 0;
+  padding-left: 70px;
+  padding-top: 280px;
+}
+
+.sub-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 0;
+  padding-left: 73px;
+}
