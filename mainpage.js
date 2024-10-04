@@ -8,4 +8,9 @@ divs.forEach((div) => {
     let selectedText = e.target;
     selectedText.style.color = "#c3a19d";
   });
+
+  div.addEventListener("mouseout", (e) => {
+    let selectedText = e.target;
+    selectedText.style.color = "black";
+  });
 });
