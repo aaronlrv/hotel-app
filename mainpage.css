@@ -47,11 +47,19 @@ body {
   padding-top: 10px;
 }
 
-#menu-text {
+.menu-text {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   font-size: 20px;
-  color: white;
+  color: black;
+}
+
+.menu-options:hover {
+  color: rgb(26, 19, 19);
+}
+
+.menu-text:hover {
+  color: rgb(26, 19, 19);
 }
 
 #main-page {
@@ -64,7 +72,7 @@ body {
 .hero-text {
   font-family: "Playfair Display", serif;
   font-size: 50px;
-  color: white;
+  color: black;
   margin: 50px 0; /* Adjust margin to move it higher */
 }
 
@@ -100,6 +108,7 @@ body {
 .btn-29:hover {
   animation: explosion 0.5s forwards;
 }
+
 @keyframes explosion {
   0% {
     transform: scale(1);
