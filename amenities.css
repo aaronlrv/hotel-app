@@ -1,0 +1,56 @@
+body {
+  margin: 0px;
+  overflow-x: none;
+}
+
+#menu-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 50px;
+  height: 115px;
+  grid-row: 1;
+}
+
+#menu-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 60px;
+}
+
+#logo-menubar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  padding-top: 10px;
+}
+
+.menu-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+
+#wrapper-div {
+  background-image: url("pexels-alittleimagery-1712854.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+
+#second-window {
+  height: 300vh;
+}
