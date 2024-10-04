@@ -54,14 +54,6 @@ body {
   color: black;
 }
 
-.menu-options:hover {
-  color: rgb(26, 19, 19);
-}
-
-.menu-text:hover {
-  color: rgb(26, 19, 19);
-}
-
 #main-page {
   width: 100%;
   height: 100%;
@@ -102,11 +94,15 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  background-color: #c4a29e;
+  background-color: #c3a19d;
   color: rgb(26, 19, 19);
 }
 .btn-29:hover {
   animation: explosion 0.5s forwards;
+}
+
+a {
+  text-decoration: none;
 }
 
 @keyframes explosion {
