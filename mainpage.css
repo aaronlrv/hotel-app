@@ -51,7 +51,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   font-size: 20px;
-  color: black;
+  color: white;
 }
 
 #main-page {
@@ -64,7 +64,7 @@ body {
 .hero-text {
   font-family: "Playfair Display", serif;
   font-size: 50px;
-  color: black;
+  color: white;
   margin: 50px 0; /* Adjust margin to move it higher */
 }
 
@@ -74,13 +74,13 @@ body {
   align-items: center;
   flex-direction: column;
   height: 70%;
-  color: black;
+  color: white;
   padding-top: 50px; /* Adjust padding to position it higher */
 }
 
 .sub-text {
   font-family: "Playfair Display", serif;
-  color: black;
+  color: white;
 }
 
 .btn-29 {
