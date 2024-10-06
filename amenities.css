@@ -62,7 +62,7 @@ main {
 
 .absolute-wrapper {
   position: absolute;
-  top: 118px; /* Start below the menu bar */
+  top: 115px; /* Start below the menu bar */
   left: 0;
   width: 100%; /* Left section to cover half of the viewport */
   height: calc(100vh - 115px); /* Ensure it takes full viewport height minus the menu bar height */
