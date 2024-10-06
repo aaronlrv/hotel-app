@@ -1,26 +1,32 @@
-const navLeft = document.querySelector(".left");
-const navRight = document.querySelector(".right");
+const images = document.querySelectorAll('.image');
+const coloredBackgrounds = document.querySelectorAll('.colored-background');
+const nextButton = document.querySelector('.right');
+const prevButton = document.querySelector('.left');
+let currentIndex = 0;
 
-const images = document.querySelector(".images");
-
-let index = 0;
-
-function right() {
-  // Move to next image, loop back to first if at the end
-  index = index < 3 ? index + 1 : 0;
-  transform(index);
+function updateBackground() {
+  coloredBackgrounds.forEach((bg, index) => {
+    bg.classList.remove('active');
+    if (index === currentIndex) {
+      bg.classList.add('active');
+    }
+  });
 }
 
-function left() {
-  // Move to previous image, loop back to last if at the beginning
-  index = index > 0 ? index - 1 : 3;
-  transform(index);
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateBackground();
+  // Adjust image position
+  document.querySelector('.images').style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-navLeft.addEventListener("click", left);
-navRight.addEventListener("click", right);
-
-function transform(index) {
-  // Apply horizontal translate for sliding effect
-  images.style.transform = `translateX(-${index * 100}%)`;
+function showPrevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateBackground();
+  // Adjust image position
+  document.querySelector('.images').style.transform = `translateX(-${currentIndex * 100}%)`;
 }
+
+nextButton.addEventListener('click', showNextImage);
+prevButton.addEventListener('click', showPrevImage);
+updateBackground(); // Initial call to set the first background
