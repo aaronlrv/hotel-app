@@ -132,19 +132,19 @@ main {
 }
 
 .colored-background:nth-child(1) {
-  background-color: #ff6f61; /* Color for image 1 */
+  background-color: #5998C5; /* Color for image 1 */
 }
 
 .colored-background:nth-child(2) {
-  background-color: #61a8ff; /* Color for image 2 */
+  background-color: #DDF8E8; /* Color for image 2 */
 }
 
 .colored-background:nth-child(3) {
-  background-color: #8cd867; /* Color for image 3 */
+  background-color: #C3A19D; /* Color for image 3 */
 }
 
 .colored-background:nth-child(4) {
-  background-color: #ffcc00; /* Color for image 4 */
+  background-color: #dab830; /* Color for image 4 */
 }
 
 /* Ensure the menu bar stays on top */
