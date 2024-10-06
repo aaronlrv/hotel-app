@@ -1,96 +1,88 @@
-body {
-  margin: 0px;
-  overflow-x: none;
-}
-
-#menu-bar {
+main {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding-right: 50px;
-  padding-left: 50px;
-  height: 115px;
-  grid-row: 1;
-}
-
-#menu-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 60px;
-}
-
-#logo-menubar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  height: 100px;
-  width: auto;
-  padding-top: 10px;
-}
-
-.menu-text {
-  font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
-  font-size: 20px;
-  color: black;
-}
-a {
-  text-decoration: none;
-}
-
-#wrapper-div {
-  background-image: url("pexels-alittleimagery-1712854.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
-  width: 100%;
+  align-items: center;
+  padding: 0 3.125rem;
+  position: relative;
 }
 
-#second-window {
-  height: 80vh;
-  background-color: #f5f4e6;
-}
-
-.title-text {
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  font-size: 80px;
-  margin: 0;
-  padding-left: 70px;
-  padding-top: 280px;
-}
-
-.sub-text {
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-  font-size: 50px;
-  margin: 0;
-  padding-left: 73px;
-}
-
-.amenities-heading {
+.wrapper {
+  position: absolute;
+  right: 0;
+  width: 40%; /* Set a fixed width for the right section */
+  height: 100%;
   display: flex;
-  height: 200px;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Prevent overflow */
 }
 
-#swimming-pool {
+.images {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
+  flex-direction: row; /* Align images in a row for horizontal sliding */
+  width: 400%; /* 4 images, so set width to 400% to accommodate all of them */
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.swim {
-  height: 400px;
-  width: 300;
+.image {
+  width: 100%; /* Ensure each image takes up the full width of the wrapper */
+  height: 100%; /* Ensure images take full height */
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
 }
 
-.swimming-text-div {
-  width: 600px;
+.image:nth-child(1) {
+  background: url("image-1.jpg") no-repeat center center / cover;
+}
+
+.image:nth-child(2) {
+  background: url("image-2.jpg") no-repeat center center / cover;
+}
+
+.image:nth-child(3) {
+  background: url("image-3.jpg") no-repeat center center / cover;
+}
+
+.image:nth-child(4) {
+  background: url("image-4.jpg") no-repeat center center / cover;
+}
+
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  transform: translateY(-50%);
+}
+
+.navigation .right,
+.navigation .left {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation .right:hover,
+.navigation .left:hover {
+  background-color: #333;
+  color: white;
+}
+
+.navigation .right:active,
+.navigation .left:active {
+  transform: scale(0.96);
 }
