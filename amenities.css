@@ -21,6 +21,7 @@ main {
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Prevent overflow */
+  z-index: 3;
 }
 
 .navigation {
@@ -60,12 +61,12 @@ main {
 
 .absolute-wrapper {
   position: absolute;
-  top: 115px; /* Start below the menu bar */
+  top: 118px; /* Start below the menu bar */
   left: 0;
-  width: 50%; /* Left section to cover half of the viewport */
+  width: 100%; /* Left section to cover half of the viewport */
   height: calc(100vh - 115px); /* Ensure it takes full viewport height minus the menu bar height */
   overflow: hidden;
-  z-index: 1; /* Ensures this layer is behind the menu bar */
+  z-index: 2; /* Ensures this layer is behind the menu bar */
 }
 
 .heading {
@@ -74,9 +75,7 @@ main {
   color: white; /* Change text color to white */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: add shadow for better visibility */
 }
-
 /* Other existing styles */
-
 .colored-backgrounds {
   position: relative; /* Use relative positioning */
   width: 100%;
@@ -133,7 +132,6 @@ main {
 
 .colored-background:nth-child(1) {
   background-color: #ff6f61; /* Color for image 1 */
-  width: 80%;
 }
 
 .colored-background:nth-child(2) {
@@ -150,21 +148,13 @@ main {
 
 /* Ensure the menu bar stays on top */
 #menu-bar {
-  z-index: 3; /* Higher value ensures it stays above the colored backgrounds */
-  position: relative; /* Add relative positioning */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-right: 50px;
   padding-left: 50px;
   height: 115px;
-}
-
-#wrapper-div {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  grid-row: 1;
 }
 
 #menu-options {
@@ -193,6 +183,7 @@ main {
   font-size: 20px;
   color: black;
 }
+
 
 a {
   text-decoration: none;
