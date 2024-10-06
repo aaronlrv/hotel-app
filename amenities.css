@@ -33,6 +33,7 @@ main {
   justify-content: space-between;
   height: 100px;
   transform: translateY(-50%);
+  z-index: 5;
 }
 
 .navigation .right,
