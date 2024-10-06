@@ -68,6 +68,15 @@ main {
   z-index: 1; /* Ensures this layer is behind the menu bar */
 }
 
+.heading {
+  position: relative; /* Ensure the text is positioned relative to the colored background */
+  z-index: 2; /* Bring the text in front of the background */
+  color: white; /* Change text color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: add shadow for better visibility */
+}
+
+/* Other existing styles */
+
 .colored-backgrounds {
   position: relative; /* Use relative positioning */
   width: 100%;
@@ -124,6 +133,7 @@ main {
 
 .colored-background:nth-child(1) {
   background-color: #ff6f61; /* Color for image 1 */
+  width: 80%;
 }
 
 .colored-background:nth-child(2) {
@@ -140,7 +150,7 @@ main {
 
 /* Ensure the menu bar stays on top */
 #menu-bar {
-  z-index: 2; /* Higher value ensures it stays above the colored backgrounds */
+  z-index: 3; /* Higher value ensures it stays above the colored backgrounds */
   position: relative; /* Add relative positioning */
   display: flex;
   flex-direction: row;
