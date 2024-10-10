@@ -206,6 +206,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 #swimming-pool {
@@ -213,10 +214,20 @@ a {
   flex-direction: row-reverse;
   justify-content: space-evenly;
 }
-.swim {
+.amenities-img {
   height: 400px;
-  width: 300;
 }
-.swimming-text-div {
+.amenities-text {
   width: 600px;
+}
+
+#sauna{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+.sauna-text{
+  padding-right: 110px;
 }
