@@ -153,6 +153,39 @@ main {
   background-color: #dab830; /* Color for image 4 */
 }
 
+
+.hero-title{
+  animation: slideAnimation both;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  font-size: 70px;
+}
+
+.hero-description, .hero-button{
+  animation: slideAnimation both;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  font-size: 20px;
+}
+
+@keyframes slideAnimation {
+  from{
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 100;
+    transform: translateX(0px);
+  }
+}
+
+
+
+
+
 /* Ensure the menu bar stays on top */
 #menu-bar {
   display: flex;
