@@ -204,6 +204,7 @@ a {
 .time-heading{
   height: 5%;
   display: flex;
+  font-size: 60px;
   justify-content: center;
   align-items: center;
   padding-bottom: 50px;
@@ -230,4 +231,20 @@ a {
 
 .sauna-text{
   padding-right: 110px;
+}
+
+.autoReveal{
+  animation: autoRevealAnimation both;
+  animation-timeline: view(50% 5%);
+}
+
+@keyframes autoRevealAnimation {
+  from {
+    opacity: 0%;
+    transform: translateY(200px) scale(0.2); 
+
+  } to {  
+    opacity: 100%;
+    transform: translateY(0) scale(1)
+  }
 }
