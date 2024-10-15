@@ -1,6 +1,13 @@
 body {
     margin: 0px;
+    padding: 0px;
     overflow-x: hidden;
+  }
+
+  .wrapper-div{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
 
@@ -52,9 +59,8 @@ body {
 .calendar-wrapper{
     display: flex;
     align-items: center;
-    padding: 0 10px;
     justify-content: center;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .wrapper {
@@ -62,6 +68,8 @@ body {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  margin: 150px;
+  padding: 10px;
 }
 .wrapper header {
   display: flex;
@@ -69,10 +77,10 @@ body {
   padding: 25px 30px 10px;
   justify-content: space-between;
 }
-header .icons {
+header .icons .secondIcons{
   display: flex;
 }
-header .icons span {
+header .icons .secondIcons span {
   height: 38px;
   width: 38px;
   margin: 0 1px;
@@ -84,10 +92,10 @@ header .icons span {
   user-select: none;
   border-radius: 50%;
 }
-.icons span:last-child {
+.icons .secondIcons span:last-child {
   margin-right: -10px;
 }
-header .icons span:hover {
+header .icons .secondIcons span:hover {
   background: #f2f2f2;
 }
 header .current-date {
