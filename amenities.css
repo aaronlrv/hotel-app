@@ -1,0 +1,366 @@
+body {
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
+  padding: 0 3.125rem;
+  position: relative;
+}
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  width: 40%; /* Set a fixed width for the right section */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent overflow */
+  z-index: 3;
+}
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.navigation .right,
+.navigation .left {
+  height: 50px;
+  width: 50px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation .right:hover,
+.navigation .left:hover {
+  background-color: #333;
+  color: white;
+}
+
+.navigation .right:active,
+.navigation .left:active {
+  transform: scale(0.96);
+}
+
+.absolute-wrapper {
+  position: absolute;
+  top: 115px; /* Start below the menu bar */
+  left: 0;
+  width: 100%; /* Left section to cover half of the viewport */
+  height: calc(100vh - 115px); /* Ensure it takes full viewport height minus the menu bar height */
+  overflow: hidden;
+  z-index: 2; /* Ensures this layer is behind the menu bar */
+}
+
+.heading {
+  position: relative; /* Ensure the text is positioned relative to the colored background */
+  z-index: 2; /* Bring the text in front of the background */
+  color: white; /* Change text color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: add shadow for better visibility */
+}
+/* Other existing styles */
+.colored-backgrounds {
+  position: relative; /* Use relative positioning */
+  width: 100%;
+  height: 100%;
+}
+
+.colored-background {
+  position: absolute; /* Full-size coverage */
+  top: 0;
+  left: 0;
+  width: 100%; /* Fill the whole container */
+  height: 100%; /* Fill the whole container */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.35s ease; /* Add transition for opacity */
+}
+
+.colored-background.active {
+  opacity: 1; /* Make active backgrounds visible */
+}
+
+/* Update for images */
+.images {
+  display: flex;
+  flex-direction: row;
+  width: 400%; /* 4 images */
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 0.35s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.image {
+  width: 100%; /* Ensure each image takes up the full width of the wrapper */
+  height: 100%; /* Ensure images take full height */
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.image:nth-child(1) {
+  background: url("image-1.jpg") no-repeat center center / cover;
+  height: 88%;
+}
+
+.image:nth-child(2) {
+  background: url("image-2.jpg") no-repeat center center / cover;
+  height: 88%;
+}
+
+.image:nth-child(3) {
+  background: url("image-3.jpg") no-repeat center center / cover;
+  height: 88%;
+
+}
+
+.image:nth-child(4) {
+  background: url("image-4.jpg") no-repeat center center / cover;
+  height: 88%;
+
+}
+
+.colored-background:nth-child(1) {
+  background-color: #5998C5; /* Color for image 1 */
+}
+
+.colored-background:nth-child(2) {
+  background-color: #DDF8E8; /* Color for image 2 */
+}
+
+.colored-background:nth-child(3) {
+  background-color: #C3A19D; /* Color for image 3 */
+}
+
+.colored-background:nth-child(4) {
+  background-color: #dab830; /* Color for image 4 */
+}
+
+
+.hero-title{
+  animation: slideAnimation both;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  font-size: 70px;
+}
+
+.hero-description, .hero-button{
+  animation: slideAnimation both;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  font-size: 20px;
+}
+
+@keyframes slideAnimation {
+  from{
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 100;
+    transform: translateX(0px);
+  }
+}
+
+
+
+
+
+/* Ensure the menu bar stays on top */
+#menu-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 50px;
+  height: 115px;
+  grid-row: 1;
+  background-color: #f0eeed;
+}
+
+#menu-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 60px;
+}
+
+#logo-menubar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  padding-top: 10px;
+}
+
+.menu-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  color: black;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.timings-page{
+  height: 100vh;
+}
+
+.time-heading{
+  height: 5%;
+  display: flex;
+  font-size: 60px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+#swimming-pool {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+.amenities-img {
+  height: 400px;
+}
+.amenities-text {
+  width: 600px;
+}
+
+#sauna{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
+
+.sauna-text{
+  padding-right: 110px;
+}
+
+.autoReveal{
+  animation: autoRevealAnimation both;
+  animation-timeline: view(50% 5%);
+}
+
+@keyframes autoRevealAnimation {
+  from {
+    opacity: 0%;
+    transform: translateY(200px) scale(0.2); 
+
+  } to {  
+    opacity: 100%;
+    transform: translateY(0) scale(1)
+  }
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+  background-color: #f0eeed;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: black;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: black;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}

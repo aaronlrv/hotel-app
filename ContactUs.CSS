@@ -1,0 +1,31 @@
+
+
+
+.heading
+{
+    text-align: center;
+}
+.navbar
+{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    padding: 10px;
+}
+.navbar a 
+{
+color: rgb(0, 0, 0);
+text-decoration: none;
+padding: 10px 30px;
+margin: 0%;
+margin-right: 16px;
+}
+.box
+{border: 1px solid #007BFF; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    margin: 10px; /* Space between boxes */
+    background-color: #78b3c6; /* Background color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
