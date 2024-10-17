@@ -55,12 +55,15 @@ body {
     text-decoration: none;
   }
   
+  main{
+    height: 100%;
+  }
 
 .calendar-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 60%;
 }
 
 .wrapper {
@@ -163,5 +166,19 @@ header .current-date {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 150px;
+}
 
+
+.people-wrapper{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.people-selector{
+  width: 50%;
+  height: 100%;
+  background-color: red;
 }
