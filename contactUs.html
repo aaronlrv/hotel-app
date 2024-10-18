@@ -10,9 +10,10 @@
 <body>
     <header>
     <nav class="navbar">
-        <a href= "mainpage.html"> Home</a>
-        <a hfef= "aboutUs.html" > About us </a>
-        <a href="contactUs.html" >Contact us</a>
+        <a class="menu-text" href="AboutUs.html">About us</a>
+        <a class="menu-text">Rooms</a>
+        <a class="menu-text" href="amenities.html">Amenities</a>
+        <a class="menu-text" href="contactUs.html" >Contact us</a>
     </nav>
     <h1 class="heading"> contact us </h1>
     </header>
@@ -20,28 +21,49 @@
 <main>
     <h3> StayEase Hotel, Dubai - Contact Information</h3>
 
-    
-    <div class="box">
-        <h2>general contact</h2>
-        <p><i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
-        <p><i class="fas fa-envelope"></i>  <Span>StayEaseGeneral@gmail.com</Span></p>
-    </div>
+    <div class="all"></div>
+      <div class="box">
+         <h2>general contact</h2>
+         <p><i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
+         <p><i class="fas fa-envelope"></i>  <Span>StayEaseGeneral@gmail.com</Span></p>
+      </div>
         
- <div class="box">
-        <h2>Reservation</h2>
-        <p><i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
+       <div class="box">
+         <h2>Reservation</h2>
+         <p><i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
          <p> <i class="fas fa-envelope"></i> <span>StayEasereserve@gmail.com</span></p>
- </div>
+       </div>
 
-    <div class="box">
-        <h2> lost and found</h2>
-            <p> <i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
-            <p>  <i class="fas fa-envelope"></i> <span>StayEasesecurity@gmail.com</span></p>
-    </div>
+        <div class="box">
+          <h2> lost and found</h2>
+           <p> <i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
+           <p>  <i class="fas fa-envelope"></i> <span>StayEasesecurity@gmail.com</span></p>
+       </div>
 
-    <div class="box">
-        <h2> restaurant</h2>
+        <div class="box">
+            <h2> restaurant</h2>
             <p><i class="fas fa-phone"></i> <span>+971 555829977</span> </p>
             <p> <i class="fas fa-envelope"></i> <span>StayEaseRestaurant@gmail.com</span></p>
-    </div>
+       </div>
+</div>
 </main>
+<div class="form">
+<h1> If you have another enquiry, please fill out the form below.</h1>
+<form action="/submit" method="POST">
+<label for="firstName">First Name:</label><br>
+<input type="text" id="firstName"  name="firstName" required><br> <br>
+
+<label for="lastName">Last Name:</label><br>
+<input type="text" id="lastName"  name="lastName" required><br> <br>
+
+<label for="phone">Phone Number: </label><br>
+<input type="text" id="phone"  name="phone" required><br> <br>
+
+<label for="enquiry">Enquiry Details:</label><br>
+ <textarea id="enquiry" name="enquiry" rows="4" required></textarea><br><br>
+
+ <input type="submit" value="submit">
+</form>
+</div>
+
+</body>
