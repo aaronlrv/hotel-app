@@ -1,6 +1,5 @@
 
 
-
 .heading
 {
     text-align: center;
@@ -27,5 +26,25 @@ margin-right: 16px;
     margin: 10px; /* Space between boxes */
     background-color: #78b3c6; /* Background color */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    width: calc(50% - 20px); /* Two boxes per row, accounting for margin */
+    box-sizing: border-box;
 }
-
+.all
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 10px; 
+    width: 300px;
+}
+.form {
+    background-color: rgb(210, 237, 251);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    
+    justify-content: center;
+    align-items: center;
+    
+}
