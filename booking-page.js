@@ -9,6 +9,8 @@ let secondPrevNextIcon = document.querySelectorAll(".secondIcons span");
 let lastSelectedDate1 = null; // For Calendar 1
 let lastSelectedDate2 = null; // For Calendar 2
 
+let bookButton = document.querySelector(".btn")
+
 // Getting new date, current year and month
 let date = new Date(),
   currYear = date.getFullYear(),
@@ -144,3 +146,33 @@ secondPrevNextIcon.forEach((icon) => {
 // Initial rendering of both calendars
 renderCalendar1();
 renderCalendar2();
+
+console.log(bookButton)
+
+bookButton.addEventListener("click", (e) => {
+    console.log(e.target)
+
+    let adults = document.querySelector("#adults")
+    let adultsNum = adults.value
+
+    let children = document.querySelector("#children")
+    let childrensNum = children.value
+
+    let startDate = lastSelectedDate1
+    let startMonth = months[currMonth1]
+    let startYear = currYear1
+
+    let endDate = lastSelectedDate2
+    let endMonth = months[currMonth2]
+    let endYear = currYear2
+
+    console.log("Number of adults " + adultsNum)
+    console.log("Number of children " + childrensNum)
+    console.log("Start date: " + startDate);
+    console.log("Start month: " + startMonth);
+    console.log("Start Year: " + startYear);
+    console.log("End date: " + endDate);
+    console.log("End month: " + endMonth);
+    console.log("End year: " + endYear);
+})
+

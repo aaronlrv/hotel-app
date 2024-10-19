@@ -9,7 +9,6 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
 
 /* Ensure the menu bar stays on top */
 #menu-bar {
@@ -230,4 +229,22 @@ a {
   100% {
     transform: scale(1.2);
   }
+}
+
+#adults, 
+#children {
+  width: 150px;
+  background-color: #eee9e9;
+}
+
+#adults::after, 
+#children::after{
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
 }
