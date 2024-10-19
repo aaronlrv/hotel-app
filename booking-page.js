@@ -60,7 +60,7 @@ const renderCalendar1 = () => {
       
       // Store last selected date
       lastSelectedDate1 = day.innerText;
-      console.log(`Last clicked date on Calendar 1: ${lastSelectedDate1}`);
+      console.log(`Last clicked date on Calendar 1: ${lastSelectedDate1} ${months[currMonth1]}`);
     });
   });
 };
@@ -98,7 +98,7 @@ const renderCalendar2 = () => {
       
       // Store last selected date
       lastSelectedDate2 = day.innerText;
-      console.log(`Last clicked date on Calendar 2: ${lastSelectedDate2}`);
+      console.log(`Last clicked date on Calendar 2: ${lastSelectedDate2} ${months[currMonth2]}`);
     });
   });
 };
