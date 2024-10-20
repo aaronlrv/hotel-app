@@ -1,201 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="menubar.js" defer></script>
-    <link rel="stylesheet" href="booking-page.css">
+    <link rel="stylesheet" href="booking-page.css" />
+    <link rel="stylesheet" href="menubar.css" />
+    <link rel="stylesheet" href="footer.css" />
     <script src="booking-page.js" defer></script>
     <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-  />
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper-div">
-        <div id="menu-bar">
-            <div id="logo-menubar">
-                <img src="IMG_3762.jpg" alt="Logo" class="logo" />
-            </div>
-            <div id="menu-options">
-                <p class="menu-text">About us</p>
-                <p class="menu-text">Rooms</p>
-                <a class="menu-text" href="amenities.html">Amenities</a>
-                <a class="menu-text" href="contactUs.html" >Contact us</a>
-            </div>
+      <div id="menu-bar">
+        <div id="logo-menubar">
+          <a href="mainpage.html">
+            <img src="IMG_3762.jpg" alt="Logo" class="logo" onclick="" />
+          </a>
         </div>
-        
-        <main>
-          <div class="calendar-wrapper">
-          
-            <div class="final-wrapper">
-              <div class="header">
-                <h3>Start Date</h3>
-              </div>
-  
-              <div class="wrapper">
-                <header>
-                  <p class="current-date">December 2022</p>
-                  <div class="icons">
-                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                    <span id="next" class="material-symbols-rounded">chevron_right</span>
-                  </div>
-                </header>
-                <div class="calendar">
-                  <ul class="weeks">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
-                  </ul>
-                  <ul class="days">
-                    <li class="inactive">28</li>
-                    <li class="inactive">29</li>
-                    <li class="inactive">30</li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li class="active">23</li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li>
-                    <li class="inactive">1</li>
-                  </ul>
-                </div>
-              </div>
+        <div id="menu-options">
+          <a class="menu-text" href="aboutUs.html">About us</a>
+          <a class="menu-text" href="amenities.html">Amenities</a>
+          <a class="menu-text" href="contactUs.html">Contact us</a>
+          <a class="menu-text" href="booking-page.html">Book now</a>
+        </div>
+      </div>
+
+      <main>
+        <div class="calendar-wrapper">
+          <div class="final-wrapper">
+            <div class="header">
+              <h3>Start Date</h3>
             </div>
-  
-            <div class="final-wrapper">
-              <div class="header">
-                <h3>End Date</h3>
-              </div>
-  
-              <div class="wrapper">
-                <header>
-                  <p class="current-date" id="secondDate">December 2022</p>
-                  <div class="secondIcons">
-                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                    <span id="next" class="material-symbols-rounded">chevron_right</span>
-                  </div>
-                </header>
-                <div class="calendar">
-                  <ul class="weeks">
-                    <li>Sun</li>
-                    <li>Mon</li>
-                    <li>Tue</li>
-                    <li>Wed</li>
-                    <li>Thu</li>
-                    <li>Fri</li>
-                    <li>Sat</li>
-                  </ul>
-                  <ul class="days" id="secondDays">
-                    <li class="inactive">28</li>
-                    <li class="inactive">29</li>
-                    <li class="inactive">30</li>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li class="active">23</li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li>
-                    <li class="inactive">1</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-  
-          </div>
 
-          <div class="people-wrapper">
-            <div class="people-selector">
-              <div class="selectors">
-                <div class="adult">
-                      <h2> Adults</h2>
-                      <select name="adults" id="adults">
-                        <option value="">Select Adults:</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
+            <div class="wrapper">
+              <header>
+                <p class="current-date">December 2022</p>
+                <div class="icons">
+                  <span id="prev" class="material-symbols-rounded"
+                    >chevron_left</span
+                  >
+                  <span id="next" class="material-symbols-rounded"
+                    >chevron_right</span
+                  >
                 </div>
-
-                <div class="childrens">
-                  <h2> Children</h2>
-                  <select name="children" id="children">
-                    <option value="">Select Kids:</option>
-                    <option value="0">Zero</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                  </select>
-                </div>
-                <div class="book-button">
-                  <button class="btn btn-29">Book now</button>
-                </div>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="days">
+                  <li class="inactive">28</li>
+                  <li class="inactive">29</li>
+                  <li class="inactive">30</li>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>6</li>
+                  <li>7</li>
+                  <li>8</li>
+                  <li>9</li>
+                  <li>10</li>
+                  <li>11</li>
+                  <li>12</li>
+                  <li>13</li>
+                  <li>14</li>
+                  <li>15</li>
+                  <li>16</li>
+                  <li>17</li>
+                  <li>18</li>
+                  <li>19</li>
+                  <li>20</li>
+                  <li>21</li>
+                  <li>22</li>
+                  <li class="active">23</li>
+                  <li>24</li>
+                  <li>25</li>
+                  <li>26</li>
+                  <li>27</li>
+                  <li>28</li>
+                  <li>29</li>
+                  <li>30</li>
+                  <li>31</li>
+                  <li class="inactive">1</li>
+                </ul>
               </div>
-
             </div>
           </div>
 
-        </main>
+          <div class="final-wrapper">
+            <div class="header">
+              <h3>End Date</h3>
+            </div>
 
+            <div class="wrapper">
+              <header>
+                <p class="current-date" id="secondDate">December 2022</p>
+                <div class="secondIcons">
+                  <span id="prev" class="material-symbols-rounded"
+                    >chevron_left</span
+                  >
+                  <span id="next" class="material-symbols-rounded"
+                    >chevron_right</span
+                  >
+                </div>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="days" id="secondDays">
+                  <li class="inactive">28</li>
+                  <li class="inactive">29</li>
+                  <li class="inactive">30</li>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>6</li>
+                  <li>7</li>
+                  <li>8</li>
+                  <li>9</li>
+                  <li>10</li>
+                  <li>11</li>
+                  <li>12</li>
+                  <li>13</li>
+                  <li>14</li>
+                  <li>15</li>
+                  <li>16</li>
+                  <li>17</li>
+                  <li>18</li>
+                  <li>19</li>
+                  <li>20</li>
+                  <li>21</li>
+                  <li>22</li>
+                  <li class="active">23</li>
+                  <li>24</li>
+                  <li>25</li>
+                  <li>26</li>
+                  <li>27</li>
+                  <li>28</li>
+                  <li>29</li>
+                  <li>30</li>
+                  <li>31</li>
+                  <li class="inactive">1</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="people-wrapper">
+          <div class="people-selector">
+            <div class="selectors">
+              <div class="adult">
+                <h2>Adults</h2>
+                <select name="adults" id="adults">
+                  <option value="">Select Adults:</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                </select>
+              </div>
+
+              <div class="childrens">
+                <h2>Children</h2>
+                <select name="children" id="children">
+                  <option value="">Select Kids:</option>
+                  <option value="0">Zero</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                </select>
+              </div>
+              <div class="book-button">
+                <button class="btn btn-29">Book now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
+  </body>
 
-</body>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>our hotel</h4>
+          <ul>
+            <li><a href="aboutUs.html">about us</a></li>
+            <li><a href="contactUs.html">contact us</a></li>
+            <li><a href="amenities.html">amenities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="booking-policy.html">Booking Policy</a></li>
+            <li><a href="location.html">getting here</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </html>
