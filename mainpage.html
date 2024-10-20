@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hotel Name</title>
     <script src="menubar.js" defer></script>
-    <script src="mainpage.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href=" menubar.css" />
     <link rel="stylesheet" href="mainpage.css" />
+    <script src="mainpage.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,13 +27,15 @@
       </video>
       <div id="menu-bar">
         <div id="logo-menubar">
-          <img src="IMG_3762.jpg" alt="Logo" class="logo" />
+          <a href="mainpage.html">
+            <img src="IMG_3762.jpg" alt="Logo" class="logo" onclick="" />
+          </a>
         </div>
         <div id="menu-options">
-          <a class="menu-text" href="AboutUs.html">About us</a>
-          <a class="menu-text">Rooms</a>
+          <a class="menu-text" href="aboutUs.html">About us</a>
           <a class="menu-text" href="amenities.html">Amenities</a>
-          <a class="menu-text" href="contactUs.html" >Contact us</a>
+          <a class="menu-text" href="contactUs.html">Contact us</a>
+          <a class="menu-text" href="booking-page.html">Book now</a>
         </div>
       </div>
       <div id="main-page">
