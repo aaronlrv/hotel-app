@@ -118,22 +118,22 @@ main {
 }
 
 .image:nth-child(1) {
-  background: url("image-1.jpg") no-repeat center center / cover;
+  background: url("img/image-1.jpg") no-repeat center center / cover;
   height: 88%;
 }
 
 .image:nth-child(2) {
-  background: url("image-2.jpg") no-repeat center center / cover;
+  background: url("img/image-2.jpg") no-repeat center center / cover;
   height: 88%;
 }
 
 .image:nth-child(3) {
-  background: url("image-3.jpg") no-repeat center center / cover;
+  background: url("img/image-3.jpg") no-repeat center center / cover;
   height: 88%;
 }
 
 .image:nth-child(4) {
-  background: url("image-4.jpg") no-repeat center center / cover;
+  background: url("img/image-4.jpg") no-repeat center center / cover;
   height: 88%;
 }
 
