@@ -1,50 +1,124 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f8f8;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f8f8;
+}
 
+#wrapper-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-.heading
-{
-    text-align: center;
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-.navbar
-{
-    display: flex;
-    justify-content: center;
-    background-color: aliceblue;
-    padding: 10px;
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 800px;
 }
-.navbar a 
-{
-color: rgb(0, 0, 0);
-text-decoration: none;
-padding: 10px 30px;
-margin: 0%;
-margin-right: 16px;
-}
-.box
-{border: 1px solid #007BFF; /* Border color */
-    border-radius: 5px; /* Rounded corners */
-    padding: 20px; /* Space inside the box */
-    margin: 10px; /* Space between boxes */
-    background-color: #78b3c6; /* Background color */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    width: calc(50% - 20px); /* Two boxes per row, accounting for margin */
-    box-sizing: border-box;
-}
-.all
-{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(2, 1fr); /* 2 rows */
-    gap: 10px; 
-    width: 300px;
-}
+
 .form {
-    background-color: rgb(210, 237, 251);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    
-    justify-content: center;
-    align-items: center;
-    
+  width: 55%; /* Adjust the form width */
+  max-width: 500px;
+  background-color: rgb(210, 237, 251);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Centers the form horizontally */
+}
+
+.info-box {
+  width: 48%; /* Adjust this width to increase/decrease the info-box size */
+  background-color: #78b3c6;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.form h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%; /* Ensure inputs take full width */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+button {
+  width: 100%; /* Button matches the input width */
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Add space between button and inputs */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.contact-container {
+  display: flex;
+  align-items: flex-start; /* Aligns items at the top */
+  justify-content: space-between;
+  column-gap: 30px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.social-links a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  color: black;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.social-links a:hover {
+  color: #24262b;
+  background-color: white;
 }
