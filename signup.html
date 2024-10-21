@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="menubar.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <script src="src/menubar.js" defer></script>
+    <script src="src/signup.js" defer></script>
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper-div">
+      <div id="menu-bar">
+        <div id="logo-menubar">
+          <a href="mainpage.html">
+            <img src="img/IMG_3762.jpg" alt="Logo" class="logo" onclick="" />
+          </a>
+        </div>
+        <div id="menu-options">
+          <a class="menu-text" href="aboutUs.html">About us</a>
+          <a class="menu-text" href="amenities.html">Amenities</a>
+          <a class="menu-text" href="contactUs.html">Contact us</a>
+          <a class="menu-text" href="booking-page.html">Book now</a>
+        </div>
+      </div>
+
+      <main>
+        <div class="auth-wrapper">
+          <h2>Sign Up</h2>
+          <form class="auth-form" action="/signup" method="POST">
+            <input type="text" placeholder="Username" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>our hotel</h4>
+          <ul>
+            <li><a href="aboutUs.html">about us</a></li>
+            <li><a href="contactUs.html">contact us</a></li>
+            <li><a href="amenities.html">amenities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="booking-policy.html">Booking Policy</a></li>
+            <li><a href="location.html">getting here</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
