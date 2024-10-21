@@ -34,7 +34,7 @@ main {
 }
 
 .form {
-  width: 55%; /* Adjust the form width */
+  width: 75%; /* Adjust the form width */
   max-width: 500px;
   background-color: rgb(210, 237, 251);
   padding: 40px;
@@ -44,7 +44,7 @@ main {
 }
 
 .info-box {
-  width: 48%; /* Adjust this width to increase/decrease the info-box size */
+  width: 55%; /* Adjust this width to increase/decrease the info-box size */
   background-color: #78b3c6;
   padding: 40px;
   border-radius: 8px;
