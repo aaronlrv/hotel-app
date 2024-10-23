@@ -40,27 +40,40 @@ app.use(
 app.use(express.static("public"));
 
 app.get("/isAuthenticated", (req, res) => {
-  if (req.session.user) {
-    res.json({ loggedIn: true, username: req.session.user.username }); // Send user status
-  } else {
-    res.json({ loggedIn: false }); // Send not-logged-in status
+  try {
+    if (req.session.user) {
+      return res
+        .status(200)
+        .json({ loggedIn: true, username: req.session.user.username });
+    } else {
+      return res.status(200).json({ loggedIn: false });
+    }
+  } catch (error) {
+    console.error("Authentication Check Error:", error);
+    res.status(500).send("Server Error");
   }
 });
 
 // for registering
 
-app.post("/register", async (req, res) => {
-  const { username, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+app.post("/signup", async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  const query =
-    "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
-  db.query(query, [username, email, hashedPassword], (err, result) => {
-    if (err) {
-      return res.send("Error: User already exists or invalid data.");
-    }
-    res.send('Registration successful! <a href="/login.html">Login here</a>');
-  });
+    const query =
+      "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
+    db.query(query, [username, email, hashedPassword], (err, result) => {
+      if (err) {
+        console.error("MySQL Error:", err.sqlMessage || err);
+        return res.status(500).send("Error: Unable to register user.");
+      }
+      res.redirect("/login.html"); // Redirect to login after successful registration
+    });
+  } catch (error) {
+    console.error("Unexpected Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.post("/login", (req, res) => {
@@ -116,7 +129,7 @@ app.get("/booking-page", (req, res) => {
 });
 
 app.get("/dashboard", isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "dashboard.html")); // Serve protected HTML page
+  res.sendFile(path.join(__dirname, "public", "booking-page.html")); // Serve protected HTML page
 });
 
 // Logout
