@@ -17,6 +17,8 @@ const db = mysql.createConnection({
   database: "hotel_db",
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
 db.connect((err) => {
   if (err) throw err;
   console.log("Connected to MySQL");
@@ -33,16 +35,6 @@ app.use(
     cookie: { maxAge: 60000 },
   })
 );
-
-// To check if user is authenticated to proceed
-
-function isAuthenticated(req, res, next) {
-  if (req.session.user) {
-    return next(); // User is authenticated, proceed to next route
-  } else {
-    res.redirect("/login.html"); // User is not authenticated, redirect to login page
-  }
-}
 
 // Serve static files (HTML, CSS)
 app.use(express.static("public"));
@@ -105,10 +97,19 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-// To make sure that the dashboard is only accessible after user login only
-app.get("/dashboard", (req, res) => {
+// Route to check if user is logged in
+app.get("/check-login", (req, res) => {
   if (req.session.user) {
-    res.sendFile(path.join(__dirname, "public", "dashboard.html")); // take user to  dashboard page if logged in
+    res.json({ loggedIn: true }); // User is logged in
+  } else {
+    res.json({ loggedIn: false }); // User is not logged in
+  }
+});
+
+// To make sure that the dashboard is only accessible after user login only
+app.get("/booking-page", (req, res) => {
+  if (req.session.user) {
+    res.sendFile(path.join(__dirname, "public", "booking-page.html")); // take user to  dashboard page if logged in
   } else {
     res.redirect("/login.html"); // Redirect user to login if not authenticated
   }
