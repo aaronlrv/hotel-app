@@ -84,6 +84,18 @@ app.get("/amenities", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "amenities.html"));
 });
 
+app.get("/faq", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "faq.html"));
+});
+
+app.get("/booking-policy", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "booking-policy.html"));
+});
+
+app.get("/location", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "location.html"));
+});
+
 // Block direct access to any .html files
 app.use((req, res, next) => {
   if (req.path.endsWith(".html")) {
