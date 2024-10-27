@@ -10,7 +10,7 @@ document.querySelector(".btn-29").addEventListener("click", (e) => {
         window.location.href = "/booking-page";
       } else {
         // If the user is not logged in, redirect to the login page
-        window.location.href = "/login.html";
+        window.location.href = "/login";
       }
     })
     .catch((error) => {

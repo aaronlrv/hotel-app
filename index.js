@@ -1,5 +1,5 @@
-const path = require("path"); // Import path module
 const express = require("express");
+const path = require("path");
 const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
@@ -22,9 +22,9 @@ db.connect((err) => {
   console.log("Connected to MySQL");
 });
 
-// Middleware
+// Middleware to parse incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Handle JSON if needed
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   session({
@@ -35,41 +35,53 @@ app.use(
   })
 );
 
-// Serve only static assets (CSS, JS, images) from the public directory
-// Serve static files from the /public directory
+// Serve static assets (CSS, JS, images) from /public directory
 app.use(express.static(path.join(__dirname, "public")));
 
-// Serve images from the /img directory
+// Serve images from /img directory
 app.use("/img", express.static(path.join(__dirname, "img")));
 
-// Optional: Serve JS from /src (if you need)
+// Serve JavaScript from /src directory
 app.use("/src", express.static(path.join(__dirname, "src")));
-// Middleware to check if the user is authenticated
+
+// Middleware to ensure the user is authenticated for protected routes
 function isAuthenticated(req, res, next) {
   if (req.session.user) {
     console.log(`User ${req.session.user.username} is authenticated`);
-    return next(); // Proceed to the next handler if authenticated
+    return next();
   } else {
     console.log("User not authenticated, redirecting to login.");
-    res.redirect("/login"); // Redirect to login if not authenticated
+    res.redirect("/login");
   }
 }
 
-// Serve HTML files through specific routes only
+// Routes to serve HTML files from /views directory
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "mainpage.html"));
+  res.sendFile(path.join(__dirname, "views", "mainpage.html"));
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "login.html"));
+  res.sendFile(path.join(__dirname, "views", "login.html"));
 });
 
 app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "signup.html"));
+  res.sendFile(path.join(__dirname, "views", "signup.html"));
 });
 
 app.get("/booking-page", isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "booking-page.html"));
+  res.sendFile(path.join(__dirname, "views", "booking-page.html"));
+});
+
+app.get("/aboutUs", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "aboutUs.html"));
+});
+
+app.get("/contactUs", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "contactUs.html"));
+});
+
+app.get("/amenities", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "amenities.html"));
 });
 
 // Block direct access to any .html files
@@ -81,21 +93,20 @@ app.use((req, res, next) => {
   next();
 });
 
-// Route to register a new user
+// User registration route
 app.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
-    const query =
-      "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
+    const query = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
     db.query(query, [username, email, hashedPassword], (err, result) => {
       if (err) {
         console.error("MySQL Error:", err.sqlMessage || err);
         return res.status(500).send("Error: Unable to register user.");
       }
       console.log("User registered successfully.");
-      res.redirect("/login"); // Redirect to login page after signup
+      res.redirect("/login"); // Redirect to login after signup
     });
   } catch (error) {
     console.error("Unexpected Error:", error);
@@ -103,7 +114,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// Route to handle user login
+// User login route
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const query = "SELECT * FROM users WHERE username = ?";
@@ -134,11 +145,11 @@ app.post("/login", (req, res) => {
 
 // Logout route
 app.get("/logout", (req, res) => {
-  req.session.destroy(); // Destroy session on logout
-  res.redirect("/login"); // Redirect to login page
+  req.session.destroy();
+  res.redirect("/login");
 });
 
-// Route to check if user is logged in (for client-side use)
+// Route to check if user is logged in (for client-side logic)
 app.get("/check-login", (req, res) => {
   if (req.session.user) {
     res.json({ loggedIn: true, username: req.session.user.username });
