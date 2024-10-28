@@ -1,4 +1,85 @@
-.AboutUs
-{
-text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(76, 131, 150); /* Dark background for the entire page */
+    color: #ffffff; /* White text for visibility */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #2a9d8f; /* Soft teal background for header */
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #264653; /* Dark teal for the navbar */
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 15px;
+    transition: background-color 0.3s; /* Smooth background change */
+}
+
+.navbar a:hover {
+    background-color: #1d3557; /* Darker shade on hover */
+}
+
+/* Heading Styles */
+.heading {
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+/* Section Styles */
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* About Us Section */
+.about-us {
+    text-align: center;
+}
+
+/* Image Styles */
+.section-image {
+    width: 80%; /* Adjusted width to make images smaller */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; 
+    border-radius: 8px; /* Rounded corners for a softer look */
+    margin: 20px auto; /* Centered with margin above and below */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: block; /* Center the image */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2a9d8f; /* Soft teal background for footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Allows positioning */
+    bottom: 0; /* Sticks to bottom */
+    width: 100%;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Underline on hover */
 }

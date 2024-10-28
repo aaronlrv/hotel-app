@@ -1,116 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/menubar.css" />
-    <link rel="stylesheet" href="/footer.css" />
-    <link rel="stylesheet" href="/ContactUs.CSS" />
-    <script src="/src/menubar.js" defer></script>
-    <script src="/src/contactUs.js" defer></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Document</title>
-  </head>
-  <div id="wrapper-div">
-    <div id="menu-bar">
-      <div id="logo-menubar">
-        <a href="/">
-          <img src="/img/IMG_3762.jpg" alt="Logo" class="logo" />
-        </a>
-      </div>
-      <div id="menu-options">
-        <a class="menu-text" href="/aboutUs">About us</a>
-        <a class="menu-text" href="/amenities">Amenities</a>
-        <a class="menu-text" href="/contactUs">Contact us</a>
-        <a class="menu-text" href="/booking-page">Book now</a>
-      </div>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="ContactUs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="menu-text" href="AboutUs.html">About Us</a>
+            <a class="menu-text" href="#">Rooms</a>
+            <a class="menu-text" href="amenities.html">Amenities</a>
+            <a class="menu-text" href="contactUs.html">Contact Us</a>
+        </nav>
+        <h1 class="heading">Contact Us</h1>
+    </header>
 
     <main>
-      <div class="contact-wrapper">
-        <h2 class="heading">Get in Touch</h2>
-        <div class="contact-container">
-          <div class="form">
-            <h3>Contact Us</h3>
-            <form action="#" method="POST">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-
-              <button type="submit">Send Message</button>
-            </form>
-          </div>
-
-          <div class="info-box">
-            <h3>Our Address</h3>
-            <p>123 Luxury Lane, City, Country</p>
-            <p>Phone: +1 234 567 890</p>
-            <p>Email: contact@hotel.com</p>
-
-            <h4>Follow Us</h4>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <section class="contact-info">
+            <h3>StayEase Hotel, Dubai - Contact Information</h3>
+            <div class="all">
+                <div class="box">
+                    <h2>General Contact</h2>
+                    <p><i class="fas fa-phone"></i> <span>+971 555829977</span></p>
+                    <p><i class="fas fa-envelope"></i> <span>StayEaseGeneral@gmail.com</span></p>
+                </div>
+                <div class="box">
+                    <h2>Reservation</h2>
+                    <p><i class="fas fa-phone"></i> <span>+971 555829977</span></p>
+                    <p><i class="fas fa-envelope"></i> <span>StayEasereserve@gmail.com</span></p>
+                </div>
+                <div class="box">
+                    <h2>Lost and Found</h2>
+                    <p><i class="fas fa-phone"></i> <span>+971 555829977</span></p>
+                    <p><i class="fas fa-envelope"></i> <span>StayEasesecurity@gmail.com</span></p>
+                </div>
+                <div class="box">
+                    <h2>Restaurant</h2>
+                    <p><i class="fas fa-phone"></i> <span>+971 555829977</span></p>
+                    <p><i class="fas fa-envelope"></i> <span>StayEaseRestaurant@gmail.com</span></p>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
+        </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col">
-          <h4>our hotel</h4>
-          <ul>
-            <li><a href="/aboutUs">about us</a></li>
-            <li><a href="/contactUs">contact us</a></li>
-            <li><a href="/amenities">amenities</a></li>
-          </ul>
+        <section class="form">
+            <h1>If you have another enquiry, please fill out the form below.</h1>
+            <form action="/submit" method="POST">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+                
+                <label for="enquiry">Enquiry Details:</label>
+                <textarea id="enquiry" name="enquiry" rows="4" required></textarea>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 StayEase Hotel. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="AboutUs.html">About Us</a>
+            <a href="amenities.html">Amenities</a>
+            <a href="contactUs.html">Contact Us</a>
         </div>
-        <div class="footer-col">
-          <h4>get help</h4>
-          <ul>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/booking-policy">Booking Policy</a></li>
-            <li><a href="/location">getting here</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>follow us</h4>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</html>
+    </footer>
+</body>
