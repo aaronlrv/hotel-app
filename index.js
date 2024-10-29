@@ -11,10 +11,11 @@ const PORT = 3000;
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: "192.168.1.118", // Replace with your MySQL host
+  host: "127.0.0.1", // Replace with your MySQL host
   user: "aaron", // Replace with your MySQL username
   password: "1234", // Replace with your MySQL password
   database: "hotel_db", // Replace with your database name
+  connectTimeout: 20000, // Set a 24 hour milisecond timeout to avoid ETIMEDOUT
 });
 
 db.connect((err) => {
