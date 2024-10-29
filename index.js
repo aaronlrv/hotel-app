@@ -111,7 +111,8 @@ app.post("/signup", async (req, res) => {
     const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
-    const query = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
+    const query =
+      "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
     db.query(query, [username, email, hashedPassword], (err, result) => {
       if (err) {
         console.error("MySQL Error:", err.sqlMessage || err);
