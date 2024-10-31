@@ -187,6 +187,12 @@ bookButton.addEventListener("click", (e) => {
   let endMonth = months[currMonth2];
   let endYear = currYear2;
 
+  let startFormatDate = formatDate(startDate, startMonth, startYear);
+  let endFormatDate = formatDate(endDate, endMonth, endYear);
+
+  console.log("Start format Date : " + startFormatDate);
+  console.log("End format date : " + endFormatDate);
+
   console.log("Number of adults " + adultsNum);
   console.log("Number of children " + childrensNum);
   console.log("Start date: " + startDate);
@@ -196,3 +202,63 @@ bookButton.addEventListener("click", (e) => {
   console.log("End month: " + endMonth);
   console.log("End year: " + endYear);
 });
+/*
+async function checkAvailability(
+  adultsNum,
+  childrenNum,
+  startDate,
+  startMonth,
+  startYear,
+  endDate,
+  endMonth,
+  endYear
+) {
+  const response = await fetch("/check-availability", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ start_date: startDate, end_date: endDate }),
+  });
+
+  const rooms = await response.json();
+  const roomsDiv = document.getElementById("available-rooms");
+  roomsDiv.innerHTML = "";
+
+  rooms.forEach((room) => {
+    const roomInfo = document.createElement("div");
+    roomInfo.innerHTML = `
+      <input type="radio" name="room_id" value="${room.room_id}" required />
+      Room ${room.room_number} - ${room.room_type} - $${room.price_per_night} per night
+    `;
+    roomsDiv.appendChild(roomInfo);
+  });
+}
+*/
+
+function formatDate(startDay, startMonth, startYear) {
+  // Create an object to map month names to their respective numbers
+  const monthMap = {
+    January: "01",
+    February: "02",
+    March: "03",
+    April: "04",
+    May: "05",
+    June: "06",
+    July: "07",
+    August: "08",
+    September: "09",
+    October: "10",
+    November: "11",
+    December: "12",
+  };
+
+  // Get the month in MM format using the monthMap
+  const month = monthMap[startMonth];
+
+  // Ensure day is always two digits (e.g., '01' instead of '1')
+  const dayFormatted = startDay < 10 ? `0${day}` : `${startDay}`;
+
+  // Format the date as yyyy/mm/dd
+  const formattedDate = `${startYear}/${month}/${dayFormatted}`;
+
+  return formattedDate;
+}

@@ -128,6 +128,40 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+// Display available rooms for the selected dates
+app.post("/check-availability", ensureLoggedIn, async (req, res) => {
+  const { start_date, end_date } = req.body;
+
+  const [availableRooms] = await pool.query(
+    `
+    SELECT r.room_id, r.room_number, r.room_type, r.price_per_night 
+    FROM rooms r
+    WHERE r.room_id NOT IN (
+      SELECT room_id 
+      FROM reservations 
+      WHERE start_date < ? AND end_date > ?
+    )
+  `,
+    [end_date, start_date]
+  );
+
+  res.json(availableRooms);
+});
+
+// Book a room
+app.post("/book-room", ensureLoggedIn, async (req, res) => {
+  const { room_id, start_date, end_date } = req.body;
+  const userId = req.session.userId;
+
+  // Insert the reservation
+  await pool.query(
+    "INSERT INTO reservations (user_id, room_id, start_date, end_date) VALUES (?, ?, ?, ?)",
+    [userId, room_id, start_date, end_date]
+  );
+
+  res.send("Room booked successfully!");
+});
+
 // User login route
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
