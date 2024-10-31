@@ -195,12 +195,6 @@ bookButton.addEventListener("click", (e) => {
 
   console.log("Number of adults " + adultsNum);
   console.log("Number of children " + childrensNum);
-  console.log("Start date: " + startDate);
-  console.log("Start month: " + startMonth);
-  console.log("Start Year: " + startYear);
-  console.log("End date: " + endDate);
-  console.log("End month: " + endMonth);
-  console.log("End year: " + endYear);
 });
 /*
 async function checkAvailability(
@@ -255,7 +249,7 @@ function formatDate(startDay, startMonth, startYear) {
   const month = monthMap[startMonth];
 
   // Ensure day is always two digits (e.g., '01' instead of '1')
-  const dayFormatted = startDay < 10 ? `0${day}` : `${startDay}`;
+  const dayFormatted = startDay < 10 ? `0${startDay}` : `${startDay}`;
 
   // Format the date as yyyy/mm/dd
   const formattedDate = `${startYear}/${month}/${dayFormatted}`;
