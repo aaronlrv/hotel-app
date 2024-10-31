@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const mysqlPromise = require("mysql2/promise");
 
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,17 @@ const db = mysql.createConnection({
   password: "1234", // Replace with your MySQL password
   database: "hotel_db", // Replace with your database name
   connectTimeout: 20000, // Set a 24 hour milisecond timeout to avoid ETIMEDOUT
+});
+
+// Create a pool
+const pool = mysqlPromise.createPool({
+  host: "127.0.0.1", // Replace with your MySQL host
+  user: "aaron", // Replace with your MySQL username
+  password: "1234", // Replace with your MySQL password
+  database: "hotel_db", // Replace with your database name
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
 db.connect((err) => {
@@ -129,7 +141,7 @@ app.post("/signup", async (req, res) => {
 });
 
 // Display available rooms for the selected dates
-app.post("/check-availability", ensureLoggedIn, async (req, res) => {
+app.post("/check-availability", isAuthenticated, async (req, res) => {
   const { start_date, end_date } = req.body;
 
   const [availableRooms] = await pool.query(
@@ -149,7 +161,7 @@ app.post("/check-availability", ensureLoggedIn, async (req, res) => {
 });
 
 // Book a room
-app.post("/book-room", ensureLoggedIn, async (req, res) => {
+app.post("/book-room", isAuthenticated, async (req, res) => {
   const { room_id, start_date, end_date } = req.body;
   const userId = req.session.userId;
 

@@ -195,18 +195,13 @@ bookButton.addEventListener("click", (e) => {
 
   console.log("Number of adults " + adultsNum);
   console.log("Number of children " + childrensNum);
+
+  checkAvailability(adultsNum, childrensNum, startFormatDate, endFormatDate);
+
+  console.log("code has reached check availability end!");
 });
-/*
-async function checkAvailability(
-  adultsNum,
-  childrenNum,
-  startDate,
-  startMonth,
-  startYear,
-  endDate,
-  endMonth,
-  endYear
-) {
+
+async function checkAvailability(adultsNum, childrenNum, startDate, endDate) {
   const response = await fetch("/check-availability", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -214,7 +209,7 @@ async function checkAvailability(
   });
 
   const rooms = await response.json();
-  const roomsDiv = document.getElementById("available-rooms");
+  const roomsDiv = document.querySelector(".available-rooms");
   roomsDiv.innerHTML = "";
 
   rooms.forEach((room) => {
@@ -226,7 +221,6 @@ async function checkAvailability(
     roomsDiv.appendChild(roomInfo);
   });
 }
-*/
 
 function formatDate(startDay, startMonth, startYear) {
   // Create an object to map month names to their respective numbers
