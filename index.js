@@ -144,20 +144,25 @@ app.post("/signup", async (req, res) => {
 app.post("/check-availability", isAuthenticated, async (req, res) => {
   const { start_date, end_date } = req.body;
 
-  const [availableRooms] = await pool.query(
-    `
-    SELECT r.room_id, r.room_number, r.room_type, r.price_per_night 
-    FROM rooms r
-    WHERE r.room_id NOT IN (
-      SELECT room_id 
-      FROM reservations 
-      WHERE start_date < ? AND end_date > ?
-    )
-  `,
-    [end_date, start_date]
-  );
+  try {
+    const [availableRooms] = await pool.query(
+      `
+      SELECT r.room_id, r.room_number, r.room_type, r.price_per_night 
+      FROM rooms r
+      WHERE r.room_id NOT IN (
+        SELECT room_id 
+        FROM reservations 
+        WHERE (? <= end_date AND ? >= start_date)
+      )
+      `,
+      [start_date, end_date]
+    );
 
-  res.json(availableRooms);
+    res.json(availableRooms);
+  } catch (error) {
+    console.error("Error fetching available rooms:", error);
+    res.status(500).send("Server error");
+  }
 });
 
 // Book a room
