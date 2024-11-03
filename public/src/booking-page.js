@@ -190,37 +190,14 @@ bookButton.addEventListener("click", (e) => {
   let startFormatDate = formatDate(startDate, startMonth, startYear);
   let endFormatDate = formatDate(endDate, endMonth, endYear);
 
-  console.log("Start format Date : " + startFormatDate);
-  console.log("End format date : " + endFormatDate);
+  if (!startFormatDate || !endFormatDate) {
+    alert("Please select both start and end dates.");
+    return;
+  }
 
-  console.log("Number of adults " + adultsNum);
-  console.log("Number of children " + childrensNum);
-
-  checkAvailability(adultsNum, childrensNum, startFormatDate, endFormatDate);
-
-  console.log("code has reached check availability end!");
+  // Redirect to available-rooms.html with dates as URL parameters
+  window.location.href = `/confirmation?start_date=${startFormatDate}&end_date=${endFormatDate}&adults_num=${adultsNum}&children_num=${childrensNum}`;
 });
-
-async function checkAvailability(adultsNum, childrenNum, startDate, endDate) {
-  const response = await fetch("/check-availability", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ start_date: startDate, end_date: endDate }),
-  });
-
-  const rooms = await response.json();
-  const roomsDiv = document.querySelector(".available-rooms");
-  roomsDiv.innerHTML = "";
-
-  rooms.forEach((room) => {
-    const roomInfo = document.createElement("div");
-    roomInfo.innerHTML = `
-      <input type="radio" name="room_id" value="${room.room_id}" required />
-      Room ${room.room_number} - ${room.room_type} - $${room.price_per_night} per night
-    `;
-    roomsDiv.appendChild(roomInfo);
-  });
-}
 
 function formatDate(startDay, startMonth, startYear) {
   // Create an object to map month names to their respective numbers
