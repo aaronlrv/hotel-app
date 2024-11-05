@@ -109,6 +109,12 @@ app.get("/location", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "location.html"));
 });
 
+app.get("/confirmation", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "confirmation.html"));
+});
+
+app.use("/img", express.static(path.join(__dirname, "public/img")));
+
 // Block direct access to any .html files
 app.use((req, res, next) => {
   if (req.path.endsWith(".html")) {

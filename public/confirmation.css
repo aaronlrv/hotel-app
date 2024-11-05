@@ -13,3 +13,118 @@ body {
 main {
   height: 100%;
 }
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.room-card {
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.room-card-content {
+  display: flex;
+  width: 100%;
+}
+
+.room-image {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+}
+
+.room-details {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.room-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.room-price {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.room-info {
+  color: #777;
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+.room-select-button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.room-select-button:hover {
+  background-color: #333;
+}
+.image-slider {
+  position: relative;
+  max-width: 100%;
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  user-select: none;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 300px; /* Adjust this value as needed */
+  object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
+}
+
+.slider-img {
+  width: 100%;
+  height: 300px; /* Adjust this height to ensure all images appear uniform */
+  object-fit: cover;
+}
+
+footer {
+  margin-top: 150px;
+}
