@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="menubar.js" defer></script>
+    <link rel="stylesheet" href="/checkout.css" />
+    <link rel="stylesheet" href="/menubar.css" />
+    <link rel="stylesheet" href="/footer.css" />
+    <script src="/src/checkout.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper-div">
+      <div id="menu-bar">
+        <div id="logo-menubar">
+          <a href="/">
+            <img src="/img/IMG_3762.jpg" alt="Logo" class="logo" />
+          </a>
+        </div>
+        <div id="menu-options">
+          <a class="menu-text" href="/aboutUs">About us</a>
+          <a class="menu-text" href="/amenities">Amenities</a>
+          <a class="menu-text" href="/contactUs">Contact us</a>
+          <a class="menu-text" href="/booking-page">Book now</a>
+        </div>
+      </div>
+      <main>
+        <section class="image-gallery">
+          <div class="slide-container">
+            <div class="mySlides fade" id="slide1"></div>
+            <div class="mySlides fade" id="slide2"></div>
+            <div class="mySlides fade" id="slide3"></div>
+            <div class="mySlides fade" id="slide4"></div>
+            <div class="mySlides fade" id="slide5"></div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+        </section>
+        <section class="booking-details">
+          <h2>Your Booking Summary</h2>
+          <p><strong>Room:</strong> <span id="room-name"></span></p>
+          <p><strong>Price per Night:</strong> <span id="room-price"></span></p>
+          <p><strong>Check-in Date:</strong> <span id="start-date"></span></p>
+          <p><strong>Check-out Date:</strong> <span id="end-date"></span></p>
+          <p><strong>Checkout Time:</strong> 10:00 AM</p>
+          <p><strong>Adults:</strong> <span id="adults-num"></span></p>
+          <p><strong>Children:</strong> <span id="children-num"></span></p>
+        </section>
+        <section class="finalize-booking">
+          <button id="confirm-booking">Confirm Booking</button>
+        </section>
+      </main>
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>our hotel</h4>
+          <ul>
+            <li><a href="/aboutUs">about us</a></li>
+            <li><a href="/contactUs">contact us</a></li>
+            <li><a href="/amenities">amenities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/booking-policy">Booking Policy</a></li>
+            <li><a href="/location">getting here</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
