@@ -113,6 +113,10 @@ app.get("/confirmation", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "views", "confirmation.html"));
 });
 
+app.get("/checkout", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "checkout.html"));
+});
+
 app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 // Block direct access to any .html files

@@ -83,3 +83,33 @@ async function fetchAvailableRooms() {
     console.error("Error loading available rooms:", error);
   }
 }
+
+// Function to select a room and redirect to the checkout page
+function selectRoom(roomId, roomType, pricePerNight) {
+  // Retrieve start and end dates and number of adults/children from the URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const startDate = urlParams.get("start_date");
+  const endDate = urlParams.get("end_date");
+  const adultNum = urlParams.get("adults");
+  const childrenNum = urlParams.get("children");
+
+  // Set a fixed checkout time
+  const checkoutTime = "10:00 AM";
+
+  // Redirect to the checkout page with all details in the URL parameters
+  const checkoutUrl = `/checkout?room_id=${roomId}&room_type=${encodeURIComponent(
+    roomType
+  )}&price_per_night=${pricePerNight}&start_date=${startDate}&end_date=${endDate}&adults=${adultNum}&children=${childrenNum}&checkout_time=${checkoutTime}`;
+
+  window.location.href = checkoutUrl;
+}
+
+// Attach event listener to each select button (modify existing logic if needed)
+document.querySelectorAll(".room-select-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const roomId = button.dataset.roomId;
+    const roomType = button.dataset.roomType;
+    const pricePerNight = button.dataset.pricePerNight;
+    selectRoom(roomId, roomType, pricePerNight);
+  });
+});
