@@ -33,12 +33,16 @@ async function fetchAvailableRooms() {
   const urlParams = new URLSearchParams(window.location.search);
   const start_date = urlParams.get("start_date");
   const end_date = urlParams.get("end_date");
+  const adults = urlParams.get("adults_num");
+  console.log("adults" + adults);
+  const children = urlParams.get("children_num");
+  console.log("children" + children);
 
   try {
     const response = await fetch("/check-availability", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ start_date, end_date }),
+      body: JSON.stringify({ start_date, end_date, adults, children }),
     });
     const rooms = await response.json();
 
@@ -69,9 +73,10 @@ async function fetchAvailableRooms() {
                   room.room_type
                 } room offers stunning views and top amenities to make your stay unforgettable.
               </div>
-              <button class="room-select-button" onclick="selectRoom(${
-                room.room_id
-              })">Select Room</button>
+              <button class="room-select-button" onclick="selectRoom(
+                ${room.room_id}, 
+                '${room.room_type}', 
+                ${room.price_per_night})">Select Room</button>
             </div>
           </div>
         </div>
@@ -88,23 +93,21 @@ async function fetchAvailableRooms() {
 function selectRoom(roomId, roomType, pricePerNight) {
   // Retrieve start and end dates and number of adults/children from the URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const startDate = urlParams.get("start_date");
-  const endDate = urlParams.get("end_date");
-  const adultNum = urlParams.get("adults");
-  const childrenNum = urlParams.get("children");
+  const start_date = urlParams.get("start_date");
+  const end_date = urlParams.get("end_date");
+  const adultNum = urlParams.get("adults_num");
+  const childrenNum = urlParams.get("children_num");
 
   // Set a fixed checkout time
   const checkoutTime = "10:00 AM";
 
   // Redirect to the checkout page with all details in the URL parameters
-  const checkoutUrl = `/checkout?room_id=${roomId}&room_type=${encodeURIComponent(
-    roomType
-  )}&price_per_night=${pricePerNight}&start_date=${startDate}&end_date=${endDate}&adults=${adultNum}&children=${childrenNum}&checkout_time=${checkoutTime}`;
+  const checkoutUrl = `/checkout?room_id=${roomId}&room_type=${roomType}&price_per_night=${pricePerNight}&start_date=${start_date}&end_date=${end_date}&adults=${adultNum}&children=${childrenNum}&checkout_time=${checkoutTime}`;
 
   window.location.href = checkoutUrl;
 }
 
-// Attach event listener to each select button (modify existing logic if needed)
+/* Attach event listener to each select button (modify existing logic if needed)
 document.querySelectorAll(".room-select-button").forEach((button) => {
   button.addEventListener("click", () => {
     const roomId = button.dataset.roomId;
@@ -113,3 +116,4 @@ document.querySelectorAll(".room-select-button").forEach((button) => {
     selectRoom(roomId, roomType, pricePerNight);
   });
 });
+*/

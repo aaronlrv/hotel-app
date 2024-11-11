@@ -150,11 +150,13 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// Display available rooms for the selected dates
+// Display available rooms for the selected dates and occupancy
 app.post("/check-availability", isAuthenticated, async (req, res) => {
-  const { start_date, end_date } = req.body;
+  const { start_date, end_date, adults, children } = req.body;
+  const totalOccupants = parseInt(adults) + parseInt(children); // Total occupancy count
 
   try {
+    // SQL query to get rooms that are available for the date range and meet the occupancy requirements
     const [availableRooms] = await pool.query(
       `
       SELECT r.room_id, r.room_number, r.room_type, r.price_per_night 
@@ -164,10 +166,12 @@ app.post("/check-availability", isAuthenticated, async (req, res) => {
         FROM reservations 
         WHERE (? <= end_date AND ? >= start_date)
       )
+      AND r.max_occupancy >= ?
       `,
-      [start_date, end_date]
+      [start_date, end_date, totalOccupants]
     );
 
+    // Respond with the available rooms directly
     res.json(availableRooms);
   } catch (error) {
     console.error("Error fetching available rooms:", error);
