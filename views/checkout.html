@@ -25,31 +25,79 @@
           <a class="menu-text" href="/booking-page">Book now</a>
         </div>
       </div>
+      <header>
+        <h1>Your Booking Confirmation</h1>
+      </header>
       <main>
-        <section class="image-gallery">
-          <div class="slide-container">
-            <div class="mySlides fade" id="slide1"></div>
-            <div class="mySlides fade" id="slide2"></div>
-            <div class="mySlides fade" id="slide3"></div>
-            <div class="mySlides fade" id="slide4"></div>
-            <div class="mySlides fade" id="slide5"></div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="checkout-container">
+          <!-- Image Gallery Section -->
+          <div class="image-gallery">
+            <div class="slide-container">
+              <div id="slider">
+                <div class="mySlides" style="display: block">
+                  <img
+                    src="/img/room_1/1.jpg"
+                    alt="Room Image"
+                    class="slider-img-large"
+                  />
+                </div>
+                <div class="mySlides" style="display: none">
+                  <img
+                    src="/img/room_1/2.jpg"
+                    alt="Room Image"
+                    class="slider-img-large"
+                  />
+                </div>
+                <div class="mySlides" style="display: none">
+                  <img
+                    src="/img/room_1/3.jpg"
+                    alt="Room Image"
+                    class="slider-img-large"
+                  />
+                </div>
+                <div class="mySlides" style="display: none">
+                  <img
+                    src="/img/room_1/4.jpg"
+                    alt="Room Image"
+                    class="slider-img-large"
+                  />
+                </div>
+                <div class="mySlides" style="display: none">
+                  <img
+                    src="/img/room_1/5.jpg"
+                    alt="Room Image"
+                    class="slider-img-large"
+                  />
+                </div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+              </div>
+            </div>
           </div>
-        </section>
-        <section class="booking-details">
-          <h2>Your Booking Summary</h2>
-          <p><strong>Room:</strong> <span id="room-name"></span></p>
-          <p><strong>Price per Night:</strong> <span id="room-price"></span></p>
-          <p><strong>Check-in Date:</strong> <span id="start-date"></span></p>
-          <p><strong>Check-out Date:</strong> <span id="end-date"></span></p>
-          <p><strong>Checkout Time:</strong> 10:00 AM</p>
-          <p><strong>Adults:</strong> <span id="adults-num"></span></p>
-          <p><strong>Children:</strong> <span id="children-num"></span></p>
-        </section>
-        <section class="finalize-booking">
-          <button id="confirm-booking">Confirm Booking</button>
-        </section>
+
+          <!-- Booking Details Section -->
+          <div class="booking-summary">
+            <div class="booking-details">
+              <h2>Your Booking Summary</h2>
+              <p><strong>Room:</strong> <span id="room-name"></span></p>
+              <p>
+                <strong>Price per Night:</strong> <span id="room-price"></span>
+              </p>
+              <p>
+                <strong>Check-in Date:</strong> <span id="start-date"></span>
+              </p>
+              <p>
+                <strong>Check-out Date:</strong> <span id="end-date"></span>
+              </p>
+              <p><strong>Checkout Time:</strong> 10:00 AM</p>
+              <p><strong>Adults:</strong> <span id="adults-num"></span></p>
+              <p><strong>Children:</strong> <span id="children-num"></span></p>
+            </div>
+            <div class="finalize-booking">
+              <button id="confirm-booking">Confirm Booking</button>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </body>

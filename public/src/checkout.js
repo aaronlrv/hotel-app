@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const roomName = urlParams.get("room");
-  const roomPrice = urlParams.get("price");
+  const roomName = urlParams.get("room_type");
+  const roomPrice = urlParams.get("price_per_night");
   const startDate = urlParams.get("start_date");
   const endDate = urlParams.get("end_date");
   const adults = urlParams.get("adults");
   const children = urlParams.get("children");
+  const roomId = urlParams.get("room_id");
 
   // Display booking details
   document.getElementById("room-name").textContent = roomName;
@@ -16,64 +17,49 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("children-num").textContent = children;
 
   // Define room-specific image paths
-  const roomImages = {
-    Single: [
-      "img/room_1/1.jpg",
-      "img/room_1/2.jpg",
-      "img/room_1/3.jpg",
-      "img/room_1/4.jpg",
-      "img/room_1/5.jpg",
-    ],
-    Double: [
-      "img/room_2/1.jpg",
-      "img/room_2/2.jpg",
-      "img/room_2/3.jpg",
-      "img/room_2/4.jpg",
-      "img/room_2/5.jpg",
-    ],
-    Suite: [
-      "img/room_3/1.jpg",
-      "img/room_3/2.jpg",
-      "img/room_3/3.jpg",
-      "img/room_3/4.jpg",
-      "img/room_3/5.jpg",
-    ],
-  };
+  const slideContainer = document.querySelector(".slide-container");
+  for (let i = 1; i <= 5; i++) {
+    const slideDiv = document.createElement("div");
+    slideDiv.className = "mySlides fade";
+    slideDiv.id = `slide${i}`;
+    slideDiv.innerHTML = `<img src="/img/room_${roomId}/${i}.jpg" class="slider-img-large" alt="Room Image ${i}" />`;
+    console.log(`room_${roomId}/${i}.jpg"`);
+    slideContainer.appendChild(slideDiv);
+  }
 
-  // Set images in the gallery
-  const selectedRoomImages = roomImages[roomName];
-  selectedRoomImages.forEach((src, index) => {
-    document.getElementById(
-      `slide${index + 1}`
-    ).innerHTML = `<img src="${src}" alt="Room Image" />`;
-  });
-
-  // Initialize and control the gallery slider
   let slideIndex = 1;
   showSlides(slideIndex);
 
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
   function showSlides(n) {
-    const slides = document.getElementsByClassName("mySlides");
+    const slides = document.querySelectorAll("#slider .mySlides");
+
+    // Ensure the index loops within the range 1-5
     if (n > slides.length) {
       slideIndex = 1;
     }
     if (n < 1) {
       slideIndex = slides.length;
     }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
+
+    slides.forEach((slide, index) => {
+      slide.style.display = index === slideIndex - 1 ? "block" : "none";
+    });
   }
 
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
-  }
-
-  document
+  const prevButton = document
     .querySelector(".prev")
-    .addEventListener("click", () => plusSlides(-1));
-  document
+    .addEventListener("click", (e) => {
+      console.log(e);
+      plusSlides(-1);
+    });
+  const next = document
     .querySelector(".next")
-    .addEventListener("click", () => plusSlides(1));
+    .addEventListener("click", (e) => {
+      console.log(e);
+      plusSlides(1);
+    });
 });

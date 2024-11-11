@@ -23,6 +23,89 @@ header {
   text-align: center;
 }
 
+.checkout-container {
+  display: flex;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.image-gallery {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.mySlides {
+  display: none;
+}
+
+.slider-img-large {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.booking-summary {
+  flex: 1;
+  padding-left: 40px;
+}
+
+.booking-details {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-details p {
+  margin: 10px 0;
+}
+
+.finalize-booking {
+  text-align: center;
+}
+
+#confirm-booking {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .main {
   padding: 20px;
   max-width: 600px;
