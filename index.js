@@ -222,6 +222,44 @@ app.post("/login", (req, res) => {
   });
 });
 
+app.post("/confirm-booking", isAuthenticated, async (req, res) => {
+  const {
+    room_id,
+    room_name,
+    start_date,
+    end_date,
+    total_price,
+    price_per_night,
+    adults_count,
+    kids_count,
+  } = req.body;
+
+  const user_id = req.session.userId;
+
+  try {
+    const query = `
+      INSERT INTO reservations (user_id, room_id, start_date, end_date, reservation_status, total_price, price_per_night, kids_count, adults_count, room_name)
+      VALUES (?, ?, ?, ?, 'confirmed', ?, ?, ?, ?, ?)
+    `;
+    await pool.query(query, [
+      user_id,
+      room_id,
+      start_date,
+      end_date,
+      total_price,
+      price_per_night,
+      kids_count,
+      adults_count,
+      room_name,
+    ]);
+
+    res.status(200).send("Booking confirmed successfully");
+  } catch (error) {
+    console.error("Error inserting reservation:", error);
+    res.status(500).send("Failed to confirm booking");
+  }
+});
+
 // Logout route
 app.get("/logout", (req, res) => {
   req.session.destroy();
