@@ -37,12 +37,6 @@ header {
   align-items: center;
 }
 
-.slide-container {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-}
-
 .mySlides {
   display: none;
 }
@@ -53,28 +47,32 @@ header {
   border-radius: 8px;
 }
 
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.5);
-  user-select: none;
-  transform: translateY(-50%);
+.slide-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust width as necessary */
+  margin: 0 auto;
 }
 
+.prev,
 .next {
-  right: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8); /* White arrow color */
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10; /* Ensure the arrows are on top */
+  user-select: none;
 }
 
 .prev {
-  left: 10px;
+  left: 10px; /* Position on the left side */
+}
+
+.next {
+  right: 10px; /* Position on the right side */
 }
 
 .booking-summary {

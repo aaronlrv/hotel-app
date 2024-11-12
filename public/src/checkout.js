@@ -16,50 +16,49 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("adults-num").textContent = adults;
   document.getElementById("children-num").textContent = children;
 
-  // Define room-specific image paths
   const slideContainer = document.querySelector(".slide-container");
+  slideContainer.innerHTML = ""; // Clear any existing slides
+
+  // Add navigation arrows to the slide container
+  const prevButton = document.createElement("a");
+  prevButton.className = "prev";
+  prevButton.innerHTML = "&#10094;";
+  prevButton.onclick = () => plusSlides(-1);
+  slideContainer.appendChild(prevButton);
+
+  const nextButton = document.createElement("a");
+  nextButton.className = "next";
+  nextButton.innerHTML = "&#10095;";
+  nextButton.onclick = () => plusSlides(1);
+  slideContainer.appendChild(nextButton);
+
+  // Add images for the specific room based on roomId
   for (let i = 1; i <= 5; i++) {
     const slideDiv = document.createElement("div");
     slideDiv.className = "mySlides fade";
-    slideDiv.id = `slide${i}`;
+    slideDiv.style.display = i === 1 ? "block" : "none"; // Show only the first image initially
     slideDiv.innerHTML = `<img src="/img/room_${roomId}/${i}.jpg" class="slider-img-large" alt="Room Image ${i}" />`;
-    console.log(`room_${roomId}/${i}.jpg"`);
     slideContainer.appendChild(slideDiv);
   }
 
   let slideIndex = 1;
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
-  }
 
   function showSlides(n) {
-    const slides = document.querySelectorAll("#slider .mySlides");
+    const slides = document.querySelectorAll(".mySlides");
 
-    // Ensure the index loops within the range 1-5
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
 
     slides.forEach((slide, index) => {
       slide.style.display = index === slideIndex - 1 ? "block" : "none";
     });
   }
 
-  const prevButton = document
-    .querySelector(".prev")
-    .addEventListener("click", (e) => {
-      console.log(e);
-      plusSlides(-1);
-    });
-  const next = document
-    .querySelector(".next")
-    .addEventListener("click", (e) => {
-      console.log(e);
-      plusSlides(1);
-    });
+  // Controls for next/previous slides
+  window.plusSlides = function (n) {
+    showSlides((slideIndex += n));
+  };
+
+  // Initialize the first slide
+  showSlides(slideIndex);
 });
