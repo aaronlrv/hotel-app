@@ -12,7 +12,7 @@ const PORT = 3000;
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: "127.0.0.1", // Replace with your MySQL host
+  host: "10.0.2.15", // Replace with your MySQL host
   user: "aaron", // Replace with your MySQL username
   password: "1234", // Replace with your MySQL password
   database: "hotel_db", // Replace with your database name
@@ -117,6 +117,14 @@ app.get("/checkout", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "views", "checkout.html"));
 });
 
+app.get("/thank-you", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "thankYou.html"));
+});
+
+app.get("/dashboard", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "dashboard.html"));
+});
+
 app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 // Block direct access to any .html files
@@ -217,6 +225,7 @@ app.post("/login", (req, res) => {
     }
 
     req.session.user = { id: user.id, username: user.username };
+    req.session.userId = user.id; // Add this line
     console.log("Login successful. Redirecting to booking page.");
     res.redirect("/booking-page");
   });
@@ -234,7 +243,12 @@ app.post("/confirm-booking", isAuthenticated, async (req, res) => {
     kids_count,
   } = req.body;
 
-  const user_id = req.session.userId;
+  const user_id = req.session.user ? req.session.user.id : null;
+
+  if (!user_id) {
+    console.log("user id aint workin");
+    return res.status(401).send("User is not logged in");
+  }
 
   try {
     const query = `
