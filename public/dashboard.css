@@ -1,26 +1,21 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+/* Ensure the footer is pushed to the bottom */
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 
 .wrapper-div {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  height: 100%;
+  flex: 1; /* Ensures main content takes available space */
 }
 
-.wrapper-div {
-  padding: 20px;
-}
-
-#bookings-list {
+.bookings-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -31,4 +26,29 @@ main {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.page-btn {
+  padding: 8px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.page-btn:hover {
+  background-color: #0056b3;
+}
+
+.page-btn.active {
+  background-color: #0056b3;
 }

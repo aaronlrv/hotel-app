@@ -1,3 +1,7 @@
+let bookings = [];
+let currentPage = 1;
+const itemsPerPage = 3;
+
 document.addEventListener("DOMContentLoaded", async () => {
   const username = await fetchUsername();
   document.querySelector(
@@ -5,36 +9,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   ).textContent = `Welcome, ${username}!`;
 
   // Fetch and display bookings
-  fetchUserBookings();
-  document.querySelector(".footer").innerHTML = `    <div class="container">
-  <div class="row">
-    <div class="footer-col">
-      <h4>our hotel</h4>
-      <ul>
-        <li><a href="/aboutUs">about us</a></li>
-        <li><a href="/contactUs">contact us</a></li>
-        <li><a href="/amenities">amenities</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>get help</h4>
-      <ul>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/booking-policy">Booking Policy</a></li>
-        <li><a href="/location">getting here</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>follow us</h4>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </div>
-  </div>
-</div>`;
+  await fetchUserBookings();
+  displayBookings(currentPage);
+  setupPaginationControls();
 });
 
 // Function to get username
@@ -44,30 +21,57 @@ async function fetchUsername() {
   return data.loggedIn ? data.username : "Guest";
 }
 
-// Function to fetch and display bookings
 async function fetchUserBookings() {
   try {
     const response = await fetch("/user-bookings");
     if (!response.ok) throw new Error("Failed to fetch bookings");
 
-    const bookings = await response.json();
-    const bookingsContainer = document.querySelector("#bookings-list");
-
-    bookings.forEach((booking) => {
-      const bookingElement = document.createElement("div");
-      bookingElement.className = "booking-item";
-      bookingElement.innerHTML = `
-          <p>Room Name: ${booking.room_name}</p>
-          <p>Check-in Date: ${booking.start_date}</p>
-          <p>Check-out Date: ${booking.end_date}</p>
-          <p>Price per Night: $${booking.price_per_night}</p>
-          <p>Total Price: $${booking.total_price}</p>
-          <p>Adults: ${booking.adults_count}</p>
-          <p>Children: ${booking.kids_count}</p>
-        `;
-      bookingsContainer.appendChild(bookingElement);
-    });
+    bookings = await response.json();
   } catch (error) {
     console.error("Error fetching bookings:", error);
+  }
+}
+
+// Display bookings for the current page
+function displayBookings(page) {
+  const bookingsContainer = document.querySelector("#bookings-list");
+  bookingsContainer.innerHTML = ""; // Clear previous content
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedBookings = bookings.slice(startIndex, endIndex);
+
+  paginatedBookings.forEach((booking) => {
+    const bookingElement = document.createElement("div");
+    bookingElement.className = "booking-item";
+    bookingElement.innerHTML = `
+        <p>Room Name: ${booking.room_name}</p>
+        <p>Check-in Date: ${booking.start_date}</p>
+        <p>Check-out Date: ${booking.end_date}</p>
+        <p>Price per Night: $${booking.price_per_night}</p>
+        <p>Total Price: $${booking.total_price}</p>
+        <p>Adults: ${booking.adults_count}</p>
+        <p>Children: ${booking.kids_count}</p>
+      `;
+    bookingsContainer.appendChild(bookingElement);
+  });
+}
+
+// Set up pagination controls
+function setupPaginationControls() {
+  const paginationContainer = document.querySelector("#pagination-controls");
+  paginationContainer.innerHTML = ""; // Clear previous controls
+
+  const totalPages = Math.ceil(bookings.length / itemsPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const pageButton = document.createElement("button");
+    pageButton.textContent = i;
+    pageButton.classList.add("page-btn");
+    pageButton.addEventListener("click", () => {
+      currentPage = i;
+      displayBookings(currentPage);
+    });
+    paginationContainer.appendChild(pageButton);
   }
 }
