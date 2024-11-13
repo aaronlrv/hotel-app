@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+async function menubar() {
   try {
     const response = await fetch("/check-login");
     const data = await response.json();
@@ -46,4 +46,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       selectedText.style.color = "black";
     });
   });
-});
+}
+
+menubar();

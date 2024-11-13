@@ -8,8 +8,9 @@
   height: 115px;
   grid-row: 1;
   background-color: #f0eeed;
+  position: relative; /* or fixed */
+  z-index: 1000;
 }
-
 #menu-options {
   display: flex;
   flex-direction: row;
