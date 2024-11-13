@@ -35,6 +35,11 @@
   font-weight: lighter;
   font-size: 20px;
   color: black;
+  cursor: pointer;
+}
+
+.menu-text:hover {
+  color: #c3a19d;
 }
 
 a {

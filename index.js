@@ -274,10 +274,14 @@ app.post("/confirm-booking", isAuthenticated, async (req, res) => {
   }
 });
 
-// Logout route
 app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.redirect("/login");
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error logging out:", err);
+      return res.status(500).send("Logout failed");
+    }
+    res.redirect("/"); // Redirect to home after logout
+  });
 });
 
 // Route to check if user is logged in (for client-side logic)
