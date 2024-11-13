@@ -44,7 +44,7 @@ app.use(
     secret: "secretKey", // Replace with a strong secret in production
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }, // Session lasts for 1 minute
+    cookie: { maxAge: 600000 }, // Session lasts for 10 minutes
   })
 );
 
@@ -286,6 +286,29 @@ app.get("/check-login", (req, res) => {
     res.json({ loggedIn: true, username: req.session.user.username });
   } else {
     res.json({ loggedIn: false });
+  }
+});
+
+// Fetch user's bookings
+app.get("/user-bookings", isAuthenticated, async (req, res) => {
+  const user_id = req.session.user ? req.session.user.id : null;
+
+  if (!user_id) {
+    return res.status(401).send("User not logged in");
+  }
+
+  try {
+    const [bookings] = await pool.query(
+      `SELECT start_date, end_date, total_price, price_per_night, kids_count, adults_count, room_name
+       FROM reservations
+       WHERE user_id = ?`,
+      [user_id]
+    );
+
+    res.json(bookings);
+  } catch (error) {
+    console.error("Error fetching bookings:", error);
+    res.status(500).send("Server error");
   }
 });
 
