@@ -1,15 +1,36 @@
+html,
 body {
-  margin: 0px;
+  height: 100%;
+  margin: 0;
   overflow: hidden;
+  font-family: "Open Sans";
+}
+
+#wrapper-div {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Ensure main-page also takes up full space in wrapper-div */
+#main-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #myVideo {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers entire background */
   z-index: -1;
 }
-
 .menu-text {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
@@ -75,4 +96,12 @@ a {
   100% {
     transform: scale(1.2);
   }
+}
+
+#menu-bar {
+  background-color: transparent;
+}
+
+.menu-text {
+  color: white;
 }

@@ -35,6 +35,8 @@ async function menubar() {
   // Mouseover color change logic for menu items
   let menuLinkText = document.querySelectorAll(".menu-text");
 
+  const onMainPage = window.location.pathname;
+
   menuLinkText.forEach((text) => {
     text.addEventListener("mouseover", (e) => {
       let selectedText = e.target;
@@ -43,7 +45,11 @@ async function menubar() {
 
     text.addEventListener("mouseout", (e) => {
       let selectedText = e.target;
-      selectedText.style.color = "black";
+      if (onMainPage == "/mainpage" || onMainPage == "/") {
+        selectedText.style.color = "white";
+      } else {
+        selectedText.style.color = "black";
+      }
     });
   });
 }
