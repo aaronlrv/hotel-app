@@ -3,7 +3,6 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  font-family: "Open Sans";
 }
 
 #wrapper-div {
@@ -30,6 +29,7 @@ body {
   height: 100%;
   object-fit: cover; /* Ensures the video covers entire background */
   z-index: -1;
+  filter: brightness(70%);
 }
 .menu-text {
   font-family: "Open Sans", sans-serif;
@@ -46,10 +46,13 @@ body {
 }
 
 .hero-text {
-  font-family: "Playfair Display", serif;
   font-size: 50px;
-  color: black;
-  margin: 50px 0; /* Adjust margin to move it higher */
+  color: whitesmoke;
+  font-family: "Spectral", serif;
+  font-weight: medium;
+  font-style: italic;
+  font-size: 100px;
+  margin: 10px;
 }
 
 #hero-text {
@@ -63,11 +66,19 @@ body {
 }
 
 .sub-text {
-  font-family: "Playfair Display", serif;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
   color: white;
+  margin: 0px;
 }
 
 .btn-29 {
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
   font-size: 16px;
   padding: 10px 20px;
   border: none;
