@@ -36,24 +36,38 @@ main {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
 }
 
 .auth-form button {
   width: 100%;
   padding: 10px;
-  background-color: #9b59b6;
+  background-color: #cfa7a3;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
 }
 
 .auth-form button:hover {
-  background-color: #8e44ad;
+  background-color: #c3a19d;
 }
 
 .auth-form p {
   text-align: center;
   margin-top: 10px;
+}
+
+h2 {
+  color: darkslategrey;
+  font-family: "Spectral", serif;
+  font-weight: medium;
 }
