@@ -2,6 +2,10 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
 }
 
 .wrapper-div {
@@ -25,7 +29,7 @@ main {
   display: flex;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -50,6 +54,8 @@ main {
 
 .room-title {
   font-size: 1.25rem;
+  font-family: "Spectral", serif;
+  font-weight: medium;
   font-weight: bold;
   color: #333;
 }
@@ -67,7 +73,7 @@ main {
 }
 
 .room-select-button {
-  background-color: #444;
+  background-color: #cfa7a3;
   color: white;
   border: none;
   padding: 0.75rem 1.25rem;
@@ -78,7 +84,7 @@ main {
 }
 
 .room-select-button:hover {
-  background-color: #333;
+  background-color: #c3a19d;
 }
 .image-slider {
   position: relative;
