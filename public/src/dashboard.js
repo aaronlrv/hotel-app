@@ -44,14 +44,23 @@ function displayBookings(page) {
   paginatedBookings.forEach((booking) => {
     const bookingElement = document.createElement("div");
     bookingElement.className = "booking-item";
+
+    const formatDate = (date) => {
+      const dateObj = new Date(date);
+      return dateObj.toISOString().split("T")[0];
+    };
+
+    const checkInDate = `${formatDate(booking.start_date)} at 10:00 AM`;
+    const checkOutDate = `${formatDate(booking.end_date)} at 10:00 AM`;
+
     bookingElement.innerHTML = `
-        <p>Room Name: ${booking.room_name}</p>
-        <p>Check-in Date: ${booking.start_date}</p>
-        <p>Check-out Date: ${booking.end_date}</p>
-        <p>Price per Night: $${booking.price_per_night}</p>
-        <p>Total Price: $${booking.total_price}</p>
-        <p>Adults: ${booking.adults_count}</p>
-        <p>Children: ${booking.kids_count}</p>
+        <h3>Room Name: ${booking.room_name}</h3>
+        <p><strong>Check-in Date:</strong> ${checkInDate}</p>
+        <p><strong>Check-out Date:</strong> ${checkOutDate}</p>
+        <p><strong>Price per Night:</strong> $${booking.price_per_night}</p>
+        <p><strong>Total Price:</strong> $${booking.total_price}</p>
+        <p><strong>Adults:</strong> ${booking.adults_count}</p>
+        <p><strong>Children:</strong> ${booking.kids_count}</p>
       `;
     bookingsContainer.appendChild(bookingElement);
   });
