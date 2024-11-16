@@ -3,12 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="menubar.js" defer></script>
     <link rel="stylesheet" href="/checkout.css" />
     <link rel="stylesheet" href="/menubar.css" />
     <link rel="stylesheet" href="/footer.css" />
     <script src="/src/checkout.js" defer></script>
+    <script src="src/menubar.js" defer></script>
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="wrapper-div">
@@ -25,9 +37,6 @@
           <a class="menu-text" href="/booking-page">Book now</a>
         </div>
       </div>
-      <header>
-        <h1>Your Booking Confirmation</h1>
-      </header>
       <main>
         <div class="checkout-container">
           <!-- Image Gallery Section -->
@@ -47,6 +56,9 @@
               <h2>Your Booking Summary</h2>
               <p><strong>Room:</strong> <span id="room-name"></span></p>
               <p>
+                <strong>Total Price:</strong> <span id="total-price"></span>
+              </p>
+              <p>
                 <strong>Price per Night:</strong> <span id="room-price"></span>
               </p>
               <p>
@@ -55,9 +67,19 @@
               <p>
                 <strong>Check-out Date:</strong> <span id="end-date"></span>
               </p>
+              <p><strong>Check-in Time:</strong> 10:00 AM</p>
               <p><strong>Checkout Time:</strong> 10:00 AM</p>
               <p><strong>Adults:</strong> <span id="adults-num"></span></p>
               <p><strong>Children:</strong> <span id="children-num"></span></p>
+              <p>
+                <strong>Room Description:</strong>
+                <span id="room-description"></span>
+              </p>
+              <p><strong>Beds:</strong> <span id="beds-count"></span></p>
+              <p>
+                <strong>Additional Charges:</strong>
+                <span id="extra-charges-note"></span>
+              </p>
             </div>
             <div class="finalize-booking">
               <button id="confirm-booking">Confirm Booking</button>

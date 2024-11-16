@@ -15,25 +15,56 @@ document.getElementById("end-date").textContent = endDate;
 document.getElementById("adults-num").textContent = adults;
 document.getElementById("children-num").textContent = children;
 
+// Room descriptions
+const roomDescriptions = {
+  Single:
+    "This elegant single room is designed with comfort and style in mind, featuring a cozy single bed perfect for solo travelers. Enjoy breathtaking views right from your window, complemented by premium amenities such as high-speed Wi-Fi, a flat-screen TV, and a well-appointed workspace. With thoughtful details like plush bedding, a modern en-suite bathroom, and complimentary toiletries, this room ensures a serene and memorable stay. Perfect for both business and leisure travelers seeking a refined experience.",
+  Double:
+    "This beautifully designed double room offers the perfect blend of comfort and sophistication, featuring a spacious double bed ideal for couples or solo travelers seeking extra space. Enjoy captivating views from your window, paired with top-notch amenities including high-speed Wi-Fi, a flat-screen TV, and a stylish seating area. The modern en-suite bathroom, complete with luxurious toiletries, ensures a relaxing experience. With premium bedding and thoughtful touches throughout, this room provides a tranquil retreat for both leisure and business travelers.",
+  Suite:
+    "This luxurious suite redefines comfort and elegance, offering a spacious layout perfect for travelers seeking an elevated stay. The suite features a plush king-sized bed, a separate living area with stylish furnishings, and large windows showcasing stunning views. Enjoy premium amenities including high-speed Wi-Fi, a flat-screen TV, a fully stocked minibar, and an in-room coffee machine. The lavish en-suite bathroom is equipped with a soaking tub, a rainfall shower, and deluxe toiletries. Ideal for both relaxation and productivity, this suite promises an unforgettable experience for discerning guests.",
+};
+
+// Number of beds based on room type
+const beds = {
+  Single: 1,
+  Double: 2,
+  Suite: 3,
+};
+
 function calculateTotalPrice() {
   const nights = Math.ceil(
     (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24)
   );
   let totalPrice = roomPrice * nights;
+  let extraChargesNote = ""; // Initialize here
 
   if (adults > 2) {
-    totalPrice += (adults - 2) * 50 * nights;
+    const extraAdults = adults - 2;
+    totalPrice += extraAdults * 50 * nights;
+    extraChargesNote += `Additional charge for ${extraAdults} extra adult(s) at $50 per night each.\n`;
   }
 
   if (children > 2) {
-    totalPrice += (children - 2) * 10 * nights;
+    const extraChildren = children - 2;
+    totalPrice += extraChildren * 10 * nights;
+    extraChargesNote += `Additional charge for ${extraChildren} extra child(ren) at $10 per night each.\n`;
   }
 
-  return totalPrice;
+  return { totalPrice, extraChargesNote };
 }
 
-let totalPrice = calculateTotalPrice();
+// Set the calculated total price and additional charge note
+const { totalPrice, extraChargesNote } = calculateTotalPrice();
 document.getElementById("total-price").textContent = `$${totalPrice}`;
+document.getElementById("extra-charges-note").textContent =
+  extraChargesNote || "No additional charges.";
+
+// Display room-specific information
+document.getElementById("room-name").textContent = roomName;
+document.getElementById("room-description").textContent =
+  roomDescriptions[roomName];
+document.getElementById("beds-count").textContent = `Beds: ${beds[roomName]}`;
 
 document
   .getElementById("confirm-booking")
@@ -56,6 +87,7 @@ document
 
       if (response.ok) {
         alert("Booking confirmed successfully!");
+        window.location.href = "/thank-you"; // Redirect to a confirmation page if needed
       } else {
         throw new Error("Failed to confirm booking");
       }

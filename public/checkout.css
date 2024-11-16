@@ -2,7 +2,10 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: Arial, sans-serif;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
   background-color: #f4f4f4;
 }
 
@@ -25,26 +28,19 @@ header {
 
 .checkout-container {
   display: flex;
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 40px;
 }
 
 .image-gallery {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 600px;
 }
 
 .mySlides {
   display: none;
-}
-
-.slider-img-large {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
 
 .slide-container {
@@ -77,31 +73,26 @@ header {
 
 .booking-summary {
   flex: 1;
-  padding-left: 40px;
-}
-
-.booking-details {
-  background: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.booking-details p {
-  margin: 10px 0;
+  max-width: 600px;
 }
 
 .finalize-booking {
   text-align: center;
+  padding-top: 30px;
 }
 
 #confirm-booking {
-  background-color: #007bff;
+  background-color: #cfa7a3;
   color: #fff;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+
+#confirm-booking:hover {
+  background-color: #c3a19d;
+  transform: scale(1.05); /* Slightly increase the size */
 }
 
 .main {
@@ -111,24 +102,31 @@ header {
 }
 
 .booking-details {
-  background: #fff;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
 }
 
-.booking-details p {
-  margin: 10px 0;
+h2 {
+  font-family: "Spectral", serif;
+}
+
+.booking-summary p {
+  margin-bottom: 10px;
+}
+
+#extra-charges-note {
+  color: #d9534f;
+}
+
+.slider-img-large {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .finalize-booking {
   text-align: center;
-}
-
-#confirm-booking {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
 }
