@@ -71,3 +71,14 @@ h2 {
   font-family: "Spectral", serif;
   font-weight: medium;
 }
+
+.error-message {
+  color: red;
+  background-color: #ffe5e5;
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+}
