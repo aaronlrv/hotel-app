@@ -47,60 +47,74 @@ async function fetchAvailableRooms() {
     const container = document.querySelector(".rooms-container");
     container.innerHTML = ""; // Clear existing room content
 
-    rooms.forEach((room) => {
-      // Define the room description based on the room type
-      let roomDescription;
-      if (room.room_type === "Single") {
-        roomDescription =
-          "This elegant single room is designed with comfort and style in mind, featuring a cozy single bed perfect for solo travelers. Enjoy breathtaking views right from your window, complemented by premium amenities such as high-speed Wi-Fi, a flat-screen TV, and a well-appointed workspace. With thoughtful details like plush bedding, a modern en-suite bathroom, and complimentary toiletries, this room ensures a serene and memorable stay. Perfect for both business and leisure travelers seeking a refined experience.";
-      } else if (room.room_type === "Double") {
-        roomDescription =
-          "This beautifully designed double room offers the perfect blend of comfort and sophistication, featuring a spacious double bed ideal for couples or solo travelers seeking extra space. Enjoy captivating views from your window, paired with top-notch amenities including high-speed Wi-Fi, a flat-screen TV, and a stylish seating area. The modern en-suite bathroom, complete with luxurious toiletries, ensures a relaxing experience. With premium bedding and thoughtful touches throughout, this room provides a tranquil retreat for both leisure and business travelers.";
-      } else if (room.room_type === "Suite") {
-        roomDescription =
-          "This luxurious suite redefines comfort and elegance, offering a spacious layout perfect for travelers seeking an elevated stay. The suite features a plush king-sized bed, a separate living area with stylish furnishings, and large windows showcasing stunning views. Enjoy premium amenities including high-speed Wi-Fi, a flat-screen TV, a fully stocked minibar, and an in-room coffee machine. The lavish en-suite bathroom is equipped with a soaking tub, a rainfall shower, and deluxe toiletries. Ideal for both relaxation and productivity, this suite promises an unforgettable experience for discerning guests.";
-      } else {
-        roomDescription =
-          "This luxurious room offers stunning views and top amenities to make your stay unforgettable."; // Default description if needed
-      }
+    if (rooms.length === 0) {
+      // No rooms available
+      const noRoomsHtml = `
+        <div class="no-rooms">
+          <h2>No rooms available for the selected dates.</h2>
+          <button  onclick="redirectToBookingPage()">Book now</button>
+          </div>
+      `;
+      container.innerHTML = noRoomsHtml;
+    } else {
+      rooms.forEach((room) => {
+        // Define the room description based on the room type
+        let roomDescription;
+        if (room.room_type === "Single") {
+          roomDescription =
+            "This elegant single room is designed with comfort and style in mind, featuring a cozy single bed perfect for solo travelers. Enjoy breathtaking views right from your window, complemented by premium amenities such as high-speed Wi-Fi, a flat-screen TV, and a well-appointed workspace. With thoughtful details like plush bedding, a modern en-suite bathroom, and complimentary toiletries, this room ensures a serene and memorable stay. Perfect for both business and leisure travelers seeking a refined experience.";
+        } else if (room.room_type === "Double") {
+          roomDescription =
+            "This beautifully designed double room offers the perfect blend of comfort and sophistication, featuring a spacious double bed ideal for couples or solo travelers seeking extra space. Enjoy captivating views from your window, paired with top-notch amenities including high-speed Wi-Fi, a flat-screen TV, and a stylish seating area. The modern en-suite bathroom, complete with luxurious toiletries, ensures a relaxing experience. With premium bedding and thoughtful touches throughout, this room provides a tranquil retreat for both leisure and business travelers.";
+        } else if (room.room_type === "Suite") {
+          roomDescription =
+            "This luxurious suite redefines comfort and elegance, offering a spacious layout perfect for travelers seeking an elevated stay. The suite features a plush king-sized bed, a separate living area with stylish furnishings, and large windows showcasing stunning views. Enjoy premium amenities including high-speed Wi-Fi, a flat-screen TV, a fully stocked minibar, and an in-room coffee machine. The lavish en-suite bathroom is equipped with a soaking tub, a rainfall shower, and deluxe toiletries. Ideal for both relaxation and productivity, this suite promises an unforgettable experience for discerning guests.";
+        } else {
+          roomDescription =
+            "This luxurious room offers stunning views and top amenities to make your stay unforgettable."; // Default description if needed
+        }
 
-      const roomHtml = `
-        <div class="room-card">
-          <div class="room-card-content">
-            <div class="image-slider" id="slider-${room.room_id}">
-              ${[1, 2, 3, 4, 5]
-                .map(
-                  (num) =>
-                    `<div class="slide"><img src="/img/room_${room.room_id}/${num}.jpg" class="slider-img" /></div>`
-                )
-                .join("")}
-              <a class="prev" onclick="prevSlide(${room.room_id})">&#10094;</a>
-              <a class="next" onclick="nextSlide(${room.room_id})">&#10095;</a>
-            </div>
-            <div class="room-details">
-              <div class="room-title">Room ${room.room_number} - ${
-        room.room_type
-      }</div>
-              <div class="room-price">$${room.price_per_night} / Night</div>
-              <div class="room-info">
-                ${roomDescription}
+        const roomHtml = `
+          <div class="room-card">
+            <div class="room-card-content">
+              <div class="image-slider" id="slider-${room.room_id}">
+                ${[1, 2, 3, 4, 5]
+                  .map(
+                    (num) =>
+                      `<div class="slide"><img src="/img/room_${room.room_id}/${num}.jpg" class="slider-img" /></div>`
+                  )
+                  .join("")}
+                <a class="prev" onclick="prevSlide(${
+                  room.room_id
+                })">&#10094;</a>
+                <a class="next" onclick="nextSlide(${
+                  room.room_id
+                })">&#10095;</a>
               </div>
-              <button class="room-select-button" onclick="selectRoom(
-                ${room.room_id}, 
-                '${room.room_type}', 
-                ${room.price_per_night})">Select Room</button>
+              <div class="room-details">
+                <div class="room-title">Room ${room.room_number} - ${
+          room.room_type
+        }</div>
+                <div class="room-price">$${room.price_per_night} / Night</div>
+                <div class="room-info">
+                  ${roomDescription}
+                </div>
+                <button class="room-select-button" onclick="selectRoom(
+                  ${room.room_id}, 
+                  '${room.room_type}', 
+                  ${room.price_per_night})">Select Room</button>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-      container.insertAdjacentHTML("beforeend", roomHtml);
-      showSlides(0, room.room_id); // Initialize the first slide for each room
-    });
+        `;
+        container.insertAdjacentHTML("beforeend", roomHtml);
+        showSlides(0, room.room_id); // Initialize the first slide for each room
+      });
+    }
   } catch (error) {
     console.error("Error loading available rooms:", error);
   }
 }
-
 // Function to select a room and redirect to the checkout page
 function selectRoom(roomId, roomType, pricePerNight) {
   // Retrieve start and end dates and number of adults/children from the URL parameters
@@ -129,3 +143,7 @@ document.querySelectorAll(".room-select-button").forEach((button) => {
   });
 });
 */
+
+function redirectToBookingPage() {
+  window.location.href = "/booking-page";
+}
