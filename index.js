@@ -138,23 +138,33 @@ app.use((req, res, next) => {
 
 // User registration route
 app.post("/signup", async (req, res) => {
+  const { username, email, password } = req.body;
+
   try {
-    const { username, email, password } = req.body;
+    // Check if username or email already exists
+    const [existingUser] = await pool.query(
+      "SELECT * FROM users WHERE username = ? OR email = ?",
+      [username, email]
+    );
+
+    if (existingUser.length > 0) {
+      // Return an error message if username or email is already taken
+      return res
+        .status(400)
+        .json({ message: "Username or email is already in use." });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
     const query =
       "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
-    db.query(query, [username, email, hashedPassword], (err, result) => {
-      if (err) {
-        console.error("MySQL Error:", err.sqlMessage || err);
-        return res.status(500).send("Error: Unable to register user.");
-      }
-      console.log("User registered successfully.");
-      res.redirect("/login"); // Redirect to login after signup
-    });
+    await pool.query(query, [username, email, hashedPassword]);
+
+    console.log("User registered successfully.");
+    res.status(201).json({ message: "Sign-up successful." }); // Send success message
   } catch (error) {
-    console.error("Unexpected Error:", error);
-    res.status(500).send("Internal Server Error");
+    console.error("Error during sign-up:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -208,26 +218,25 @@ app.post("/login", (req, res) => {
   db.query(query, [username], async (err, results) => {
     if (err) {
       console.error("Error fetching user:", err);
-      return res.status(500).send("Server error.");
+      return res.status(500).json({ message: "Server error." });
     }
 
     if (results.length === 0) {
       console.log("User not found");
-      return res.status(401).send("Invalid username or password.");
+      return res.status(401).json({ message: "Invalid username or password." });
     }
 
     const user = results[0];
     const passwordMatch = await bcrypt.compare(password, user.password_hash);
-    console.log(`Password match: ${passwordMatch}`);
 
     if (!passwordMatch) {
-      return res.status(401).send("Invalid username or password.");
+      return res.status(401).json({ message: "Invalid username or password." });
     }
 
     req.session.user = { id: user.id, username: user.username };
-    req.session.userId = user.id; // Add this line
+    req.session.userId = user.id;
     console.log("Login successful. Redirecting to booking page.");
-    res.redirect("/booking-page");
+    res.status(200).json({ message: "Login successful." });
   });
 });
 
