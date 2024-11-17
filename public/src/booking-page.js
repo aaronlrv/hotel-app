@@ -171,8 +171,31 @@ renderCalendar2();
 
 console.log(bookButton);
 
+function isDateValid(startDate, endDate) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Ignore time part of today's date
+
+  // Convert input dates to Date objects
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  // Check that start date and end date are not in the past
+  if (start < today || end < today) {
+    alert("Dates cannot be in the past.");
+    return false;
+  }
+
+  // Check that start date is not after the end date
+  if (start > end) {
+    alert("The start date cannot be after the end date.");
+    return false;
+  }
+
+  return true;
+}
+
+// Event listener for the booking button
 bookButton.addEventListener("click", (e) => {
-  console.log(e.target);
   let adults = document.querySelector("#adults");
   let adultsNum = adults.value;
 
@@ -195,7 +218,12 @@ bookButton.addEventListener("click", (e) => {
     return;
   }
 
-  // Redirect to available-rooms.html with dates as URL parameters
+  // Validate dates
+  if (!isDateValid(startFormatDate, endFormatDate)) {
+    return;
+  }
+
+  // Redirect to confirmation page if dates are valid
   window.location.href = `/confirmation?start_date=${startFormatDate}&end_date=${endFormatDate}&adults_num=${adultsNum}&children_num=${childrensNum}`;
 });
 
