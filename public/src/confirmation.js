@@ -112,7 +112,16 @@ async function fetchAvailableRooms() {
       });
     }
   } catch (error) {
+    const container = document.querySelector(".rooms-container");
+
     console.error("Error loading available rooms:", error);
+    const noRoomsHtml = `
+    <div class="no-rooms">
+      <h2>Error in trying to select your room, Please try again.</h2>
+      <button  onclick="redirectToBookingPage()">Book now</button>
+      </div>
+  `;
+    container.innerHTML = noRoomsHtml;
   }
 }
 // Function to select a room and redirect to the checkout page
