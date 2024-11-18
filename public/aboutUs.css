@@ -1,0 +1,96 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
+}
+
+.wrapper-div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.about-intro,
+.about-story,
+.our-values,
+.meet-our-team {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.about-intro h1 {
+  font-size: 2.5rem;
+  color: #333;
+  font-family: "Spectral", serif;
+  font-weight: medium;
+}
+
+.about-intro p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.about-story h2,
+.our-values h2,
+.meet-our-team h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: "Spectral", serif;
+  font-weight: medium;
+}
+
+.about-story p,
+.our-values ul,
+.meet-our-team p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.our-values ul {
+  list-style: none;
+  padding: 0;
+}
+
+.our-values li {
+  margin: 10px 0;
+}
+
+.team-profiles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+  max-width: 200px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #777;
+}

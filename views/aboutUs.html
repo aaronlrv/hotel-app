@@ -1,70 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - StayEase Hotel</title>
-    <link rel="stylesheet" href="aboutus.CSS"> 
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a class="menu-text" href="AboutUs.html">About Us</a>
-            <a class="menu-text" href="rooms.html">Rooms</a>
-            <a class="menu-text" href="amenities.html">Amenities</a>
-            <a class="menu-text" href="contactUs.html">Contact Us</a>
-        </nav>
-        <h1 class="heading">Welcome to StayEase Hotel</h1>
-    </header>
-
-    <main>
-        <section class="about-us">
-            <h2>About Us</h2>
-            <img src="image-4.jpg" alt="About Us" class="section-image">
-            <p>At StayEase, we pride ourselves on providing a luxurious and unforgettable experience for our guests. Established in 2005, our mission is to offer exceptional hospitality with a touch of elegance.</p>
-        </section>
-
-        <section class="accommodations">
-            <h2>Accommodations</h2>
-            <img src="Screenshot 2024-10-28 at 11.18.43 AM.png" alt="Accommodations" class="section-image">
-            <img src="Screenshot 2024-10-28 at 11.20.10 AM.png" alt="Accommodations" class="section-image">
-            
-            <p>We provide a diverse selection of room types to cater to your preferences. Our offerings include single-bed rooms, available in two options: a standard room and a room with a view. Additionally, we have double-bed rooms, which also come in two varieties: one with a view and one without. Lastly, our en-suite rooms feature beautiful views, ensuring a comfortable and enjoyable stay. Each room is designed with comfort and convenience in mind, featuring modern amenities and stunning views.</p>
-        </section>
-
-        <section class="location">
-            <h2>Location</h2>
-            <img src="Screenshot 2024-10-28 at 11.08.55 AM.png" alt="Location" class="section-image">
-            <p>Located in the heart of Dubai, Downtown. Our hotel is just steps away from popular attractions such as Dubai Mall, Burj Khalifa, and the Museum of the Future.</p>
-        </section>
-
-        <section class="services">
-            <h2>Services</h2>
-            <img src="image-1.jpg" alt="Services" class="section-image">
-            <img src="image-3.jpg" alt="Services" class="section-image">
-            <img src="image-2.jpg" alt="Services" class="section-image">
-            <img src="Screenshot 2024-10-28 at 11.29.23 AM.png" alt="Services" class="section-image">
-
-
-            <ul>
-                <li>Fine dining restaurant</li>
-                <li>Conference and event spaces</li>
-                <li>Complimentary Wi-Fi</li>
-                <li>Swimming pool</li>
-                <li>Spa</li>
-                <li>Gym</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 StayEase Hotel. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="AboutUs.html">About Us</a>
-            <a href="amenities.html">Amenities</a>
-            <a href="contactUs.html">Contact Us</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link rel="stylesheet" href="/aboutUs.css" />
+    <link rel="stylesheet" href="/menubar.css" />
+    <link rel="stylesheet" href="/footer.css" />
+    <script src="/src/menubar.js" defer></script>
+    <script src="/src/aboutUs.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="wrapper-div">
+      <div id="menu-bar">
+        <div id="logo-menubar">
+          <a href="/">
+            <img src="/img/IMG_3762.jpg" alt="Logo" class="logo" />
+          </a>
         </div>
-    </footer>
-</body>
-</html>
+        <div id="menu-options">
+          <a class="menu-text" href="/aboutUs">About us</a>
+          <a class="menu-text" href="/amenities">Amenities</a>
+          <a class="menu-text" href="/contactUs">Contact us</a>
+          <a class="menu-text" href="/booking-page">Book now</a>
+        </div>
+      </div>
 
+      <main>
+        <section class="about-intro">
+          <h1>Welcome to StayEase</h1>
+          <p>
+            Nestled in the heart of Dubai, our hotel is more than just a place
+            to stay—it's a destination where luxury meets comfort. For over a
+            decade, we’ve been providing our guests with unparalleled
+            hospitality and world-class experiences.
+          </p>
+        </section>
+
+        <section class="about-story">
+          <h2>Our Story</h2>
+          <p>
+            Founded in 2024, StayEase started with a simple vision: creating a
+            haven of relaxation and sophistication. From our humble beginnings,
+            we’ve grown into a premier hotel renowned for its exceptional
+            service and luxurious amenities.
+          </p>
+        </section>
+
+        <section class="our-values">
+          <h2>Our Values</h2>
+          <ul>
+            <li>
+              <strong>Excellence:</strong> Delivering top-tier service every
+              day.
+            </li>
+            <li><strong>Comfort:</strong> Providing a home away from home.</li>
+            <li>
+              <strong>Sustainability:</strong> Committed to eco-friendly
+              practices.
+            </li>
+            <li>
+              <strong>Community:</strong> Supporting local businesses and
+              culture.
+            </li>
+          </ul>
+        </section>
+
+        <section class="meet-our-team">
+          <h2>Meet Our Team</h2>
+          <p>
+            Behind every exceptional guest experience is a dedicated team. Our
+            staff is trained to go above and beyond to ensure your stay is
+            unforgettable.
+          </p>
+          <div class="team-profiles">
+            <div class="team-member">
+              <img src="/img/mohammad.jpeg" alt="Team Member 1" />
+              <h3>Mohammad</h3>
+            </div>
+            <div class="team-member">
+              <img src="/img/mohannad.jpeg" alt="Team Member 2" />
+              <h3>Mohannad</h3>
+            </div>
+            <div class="team-member">
+              <img src="/img/aaron.jpeg" alt="Team Member 3" />
+              <h3>Aaron Lawrence</h3>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>our hotel</h4>
+              <ul>
+                <li><a href="/aboutUs">About us</a></li>
+                <li><a href="/contactUs">Contact us</a></li>
+                <li><a href="/amenities">Amenities</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/booking-policy">Booking Policy</a></li>
+                <li><a href="/location">Getting Here</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
