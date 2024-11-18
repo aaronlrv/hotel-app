@@ -15,13 +15,13 @@ h2 {
   font-size: 25px;
 }
 .wrapper-div {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-  height: 100%;
+  flex-grow: 1;
 }
 
 .calendar-wrapper {
@@ -140,6 +140,7 @@ header .current-date {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
 .people-selector {
@@ -239,4 +240,52 @@ a {
   100% {
     transform: scale(1.2);
   }
+}
+
+.room-info-wrapper {
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  text-align: center;
+}
+
+.room-info-wrapper h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.room-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.room-type {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: left;
+}
+
+.room-type h3 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.room-type p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
 }
