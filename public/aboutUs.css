@@ -1,15 +1,13 @@
+/* General Styles */
 body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
   font-family: "Karla", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: Regular;
 }
 
 .wrapper-div {
-  min-height: 100vh;
+  min-height: 100vh; /* Ensures it adjusts dynamically */
   display: flex;
   flex-direction: column;
 }
@@ -31,8 +29,6 @@ main {
 .about-intro h1 {
   font-size: 2.5rem;
   color: #333;
-  font-family: "Spectral", serif;
-  font-weight: medium;
 }
 
 .about-intro p {
@@ -47,8 +43,6 @@ main {
   font-size: 2rem;
   color: #333;
   margin-bottom: 10px;
-  font-family: "Spectral", serif;
-  font-weight: medium;
 }
 
 .about-story p,
@@ -90,7 +84,58 @@ main {
   color: #555;
 }
 
-.team-member p {
-  font-size: 1rem;
-  color: #777;
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .about-intro h1 {
+    font-size: 2rem;
+  }
+
+  .about-intro p,
+  .about-story p,
+  .our-values ul,
+  .meet-our-team p {
+    font-size: 1rem;
+  }
+
+  .team-profiles {
+    gap: 15px;
+  }
+
+  .team-member {
+    max-width: 150px;
+  }
+
+  .team-member h3 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-intro p,
+  .about-story p,
+  .our-values ul,
+  .meet-our-team p {
+    font-size: 0.9rem;
+  }
+
+  .team-profiles {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-member {
+    max-width: 120px;
+  }
+
+  .team-member h3 {
+    font-size: 0.9rem;
+  }
+
+  .team-member img {
+    width: 80%;
+  }
 }

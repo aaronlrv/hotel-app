@@ -1,8 +1,16 @@
 body {
   margin: 0px;
   overflow-x: hidden;
+  font-family: "Karla", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Regular;
 }
 
+h1 {
+  font-family: "Spectral", serif;
+  font-weight: medium;
+}
 main {
   display: flex;
   justify-content: space-between;
@@ -22,6 +30,7 @@ main {
   align-items: center;
   overflow: hidden; /* Prevent overflow */
   z-index: 3;
+  padding-top: 65px;
 }
 
 .navigation {
