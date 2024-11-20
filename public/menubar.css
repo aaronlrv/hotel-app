@@ -1,24 +1,22 @@
+/* Ensure the menu bar stays on top */
 #menu-bar {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 50px;
-  height: auto; /* Allow dynamic height */
+  padding-right: 50px;
+  padding-left: 50px;
+  height: 115px;
+  grid-row: 1;
   background-color: #f0eeed;
-  position: sticky;
-  top: 0;
+  position: relative; /* or fixed */
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 #menu-options {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  gap: 30px;
+  gap: 60px;
 }
 
 #logo-menubar {
@@ -28,15 +26,15 @@
 }
 
 .logo {
-  height: 60px;
+  height: 80px;
   width: auto;
+  padding-top: 10px;
 }
 
-/* Default Menu Text */
 .menu-text {
   font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
+  font-weight: lighter;
+  font-size: 20px;
   color: black;
   cursor: pointer;
 }
@@ -47,51 +45,4 @@
 
 a {
   text-decoration: none;
-}
-
-/* Responsive Styles */
-@media (max-width: 767px) {
-  #menu-bar {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  #menu-options {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .menu-text {
-    font-size: 16px; /* Smaller font size */
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    display: none; /* Hide logo on smaller screens */
-  }
-
-  #logo-menubar::after {
-    content: "Home"; /* Replace with text */
-    font-family: "Open Sans", sans-serif;
-    font-size: 18px;
-    color: black;
-  }
-
-  #menu-options {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menu-text {
-    font-size: 14px;
-  }
-
-  /* Hide extra menu items */
-  .menu-text:nth-child(2), /* Hides Amenities */
-  .menu-text:nth-child(3) {
-    /* Hides Contact us */
-    display: none;
-  }
 }
