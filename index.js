@@ -12,19 +12,18 @@ const PORT = 3000;
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: "10.0.2.15", // Replace with your MySQL host
-  user: "aaron", // Replace with your MySQL username
-  password: "1234", // Replace with your MySQL password
-  database: "hotel_db", // Replace with your database name
-  connectTimeout: 20000, // Set a 24 hour milisecond timeout to avoid ETIMEDOUT
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  connectTimeout: 20000,
 });
 
-// Create a pool
 const pool = mysqlPromise.createPool({
-  host: "127.0.0.1", // Replace with your MySQL host
-  user: "aaron", // Replace with your MySQL username
-  password: "1234", // Replace with your MySQL password
-  database: "hotel_db", // Replace with your database name
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -41,10 +40,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   session({
-    secret: "secretKey", // Replace with a strong secret in production
+    secret: process.env.SESSION_SECRET, // Use an environment variable
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 600000 }, // Session lasts for 10 minutes
+    cookie: { maxAge: 600000 },
   })
 );
 
