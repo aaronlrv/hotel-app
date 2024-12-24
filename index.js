@@ -6,34 +6,42 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const mysqlPromise = require("mysql2/promise");
+require("dotenv").config();
 
-const app = express();
-const PORT = 3000;
-
-// MySQL connection
-const db = mysql.createConnection({
+console.log({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  connectTimeout: 20000,
+  port: process.env.DB_PORT,
 });
+
+const app = express();
+const PORT = 3000;
 
 const pool = mysqlPromise.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+  connectTimeout: 60000,
+  ssl: {
+    rejectUnauthorized: false, // Allow self-signed certificates
+  },
 });
 
-db.connect((err) => {
-  if (err) throw err;
-  console.log("Connected to MySQL");
-});
-
+(async () => {
+  try {
+    const [results] = await pool.query("SELECT 1");
+    console.log("Connection pool test successful:", results);
+  } catch (err) {
+    console.error("Error with connection pool:", err);
+  }
+})();
 // Middleware to parse incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -211,14 +219,17 @@ app.post("/book-room", isAuthenticated, async (req, res) => {
 });
 
 // User login route
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
+  console.log("Login request received with:", req.body);
   const { username, password } = req.body;
+
   const query = "SELECT * FROM users WHERE username = ?";
-  db.query(query, [username], async (err, results) => {
-    if (err) {
-      console.error("Error fetching user:", err);
-      return res.status(500).json({ message: "Server error." });
-    }
+  console.log("Executing query:", query, "with username:", username);
+
+  try {
+    const [results] = await pool.query(query, [username]); // Use pool.query for better handling
+
+    console.log("Query results:", results);
 
     if (results.length === 0) {
       console.log("User not found");
@@ -226,7 +237,10 @@ app.post("/login", (req, res) => {
     }
 
     const user = results[0];
+    console.log("User found:", user);
+
     const passwordMatch = await bcrypt.compare(password, user.password_hash);
+    console.log("Password match:", passwordMatch);
 
     if (!passwordMatch) {
       return res.status(401).json({ message: "Invalid username or password." });
@@ -234,9 +248,12 @@ app.post("/login", (req, res) => {
 
     req.session.user = { id: user.id, username: user.username };
     req.session.userId = user.id;
-    console.log("Login successful. Redirecting to booking page.");
+    console.log("Login successful for user:", user.username);
     res.status(200).json({ message: "Login successful." });
-  });
+  } catch (error) {
+    console.error("Error during login process:", error);
+    res.status(500).json({ message: "Server error." });
+  }
 });
 
 app.post("/confirm-booking", isAuthenticated, async (req, res) => {
