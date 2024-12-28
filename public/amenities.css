@@ -13,7 +13,7 @@ h1 {
 }
 main {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   height: 100vh;
   align-items: center;
   padding: 0 3.125rem;
@@ -32,226 +32,76 @@ main {
   z-index: 3;
 }
 
-.navigation {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100px;
-  transform: translateY(-50%);
-  z-index: 5;
+body {
+  font-family: "Karla", sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.navigation .right,
-.navigation .left {
-  height: 50px;
-  width: 50px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.navigation .right:hover,
-.navigation .left:hover {
-  background-color: #333;
-  color: white;
-}
-
-.navigation .right:active,
-.navigation .left:active {
-  transform: scale(0.96);
-}
-
-.absolute-wrapper {
-  position: absolute;
-  top: 115px; /* Start below the menu bar */
-  left: 0;
-  width: 100%; /* Left section to cover half of the viewport */
-  height: calc(
-    100vh - 115px
-  ); /* Ensure it takes full viewport height minus the menu bar height */
-  overflow: hidden;
-  z-index: 2; /* Ensures this layer is behind the menu bar */
-}
-
-.heading {
-  position: relative; /* Ensure the text is positioned relative to the colored background */
-  z-index: 2; /* Bring the text in front of the background */
-  color: white; /* Change text color to white */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: add shadow for better visibility */
-}
-/* Other existing styles */
-.colored-backgrounds {
-  position: relative; /* Use relative positioning */
-  width: 100%;
-  height: 100%;
-}
-
-.colored-background {
-  position: absolute; /* Full-size coverage */
-  top: 0;
-  left: 0;
-  width: 100%; /* Fill the whole container */
-  height: 100%; /* Fill the whole container */
-  opacity: 0; /* Start invisible */
-  transition: opacity 0.35s ease; /* Add transition for opacity */
-}
-
-.colored-background.active {
-  opacity: 1; /* Make active backgrounds visible */
-}
-
-/* Update for images */
-.images {
-  display: flex;
-  flex-direction: row;
-  width: 400%; /* 4 images */
-  height: 100%;
-  transform: translateX(0);
-  transition: transform 0.35s cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-.image {
-  width: 100%; /* Ensure each image takes up the full width of the wrapper */
-  height: 100%; /* Ensure images take full height */
-  flex-shrink: 0;
-  background-size: cover;
-  background-position: center;
-}
-
-.image:nth-child(1) {
-  background: url("img/image-1.jpg") no-repeat center center / cover;
-  height: 88%;
-}
-
-.image:nth-child(2) {
-  background: url("img/image-2.jpg") no-repeat center center / cover;
-  height: 88%;
-}
-
-.image:nth-child(3) {
-  background: url("img/image-3.jpg") no-repeat center center / cover;
-  height: 88%;
-}
-
-.image:nth-child(4) {
-  background: url("img/image-4.jpg") no-repeat center center / cover;
-  height: 88%;
-}
-
-.colored-background:nth-child(1) {
-  background-color: #5998c5; /* Color for image 1 */
-}
-
-.colored-background:nth-child(2) {
-  background-color: #b2cfbe; /* Color for image 2 */
-}
-
-.colored-background:nth-child(3) {
-  background-color: #c3a19d; /* Color for image 3 */
-}
-
-.colored-background:nth-child(4) {
-  background-color: #dab830; /* Color for image 4 */
-}
-
-.hero-title {
-  animation: slideAnimation both;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  font-size: 70px;
-}
-
-.hero-description,
-.hero-button {
-  animation: slideAnimation both;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 2s;
-  font-size: 20px;
-}
-
-@keyframes slideAnimation {
-  from {
-    filter: blur(10px);
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-  to {
-    filter: blur(0);
-    opacity: 100;
-    transform: translateX(0px);
-  }
-}
-
-.timings-page {
-  height: 100vh;
-}
-
-.time-heading {
-  height: 5%;
-  display: flex;
-  font-size: 60px;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 50px;
-}
-
-#swimming-pool {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-}
-.amenities-img {
-  height: 400px;
-}
-.amenities-text {
-  width: 600px;
-}
-
-#sauna {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 30px;
-}
-
-.sauna-text {
-  padding-right: 110px;
-}
-
-.autoReveal {
-  animation: autoRevealAnimation both;
-  animation-timeline: view(50% 5%);
-}
-
-@keyframes autoRevealAnimation {
-  from {
-    opacity: 0%;
-    transform: translateY(200px) scale(0.2);
-  }
-  to {
-    opacity: 100%;
-    transform: translateY(0) scale(1);
-  }
-}
 .container {
-  max-width: 1170px;
+  max-width: 1200px;
   margin: auto;
+  padding: 2rem;
 }
-.row {
+
+h1 {
+  font-family: "Spectral", serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.amenity {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 1100px;
 }
-ul {
-  list-style: none;
+
+.amenity:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
+.amenity img {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.amenity-details {
+  flex: 1;
+  margin-left: 1.5rem;
+}
+
+.amenity-details h2 {
+  font-family: "Spectral", serif;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #444;
+}
+
+.amenity-details p {
+  margin: 0.5rem 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.timings {
+  font-weight: bold;
+  color: #666;
+}
+
 .footer {
   background-color: #f0eeed;
   padding: 70px 0;
