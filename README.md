@@ -44,5 +44,6 @@ Make the website responsive
 
 Implement more animations and styling to the page
 
+Fix bug regarding the navbar, Where the fonts are different during certain pages IE: The font in the navbar when navigating through amenities is lighter than when it's in the about us. I want them all to be in that light style
 ## Contact info
 Feel free to contact me here! aaronvitharanage@gmail.com
